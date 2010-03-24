@@ -1,0 +1,1490 @@
+/*
+/* NB!!! IE6 hacks are written to ie6fix.css
+
+
+/**************** resets ****************/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td{margin:0;padding:0;}
+input{ padding:0 1px;width:auto;overflow:visible;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+legend{color:#000;}
+address,caption,cite,code,dfn,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li {list-style:none;}
+caption,th {text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+q:before,q:after{content:'';}
+a:link {color: #03c}
+a:visited {color: #03c}
+a:hover {color:#d60000;}
+a:focus {-moz-outline-style:none;}
+strong {font-weight:bold;}
+u {text-decoration:none!important;font-weight:bold!important}
+
+body {font:13px verdana,arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;background-color:#ededed}
+
+.posthidden {display:none;}
+.postshown {display:inline;}
+.postshown-block {display:block;}
+
+table {font-size:inherit;}
+h1,h2,h3{font-size:100%; font-family:arial,helvetica,clean,sans-serif;}
+h4,h5,h6{font-size:11px; font-family:verdana,arial,helvetica,clean,sans-serif;}
+h1.medium-font {font-size:13px!important;margin-top:4px;margin-bottom:4px}
+
+/** 99% for safari; 100% is too large */
+select, input, textarea {font:99% arial,helvetica,clean,sans-serif;}
+
+/** Bump up !IE to get to 13px equivalent */
+pre, code {font:115% monospace;*font-size:100%;}
+
+/**************** main css ****************/
+
+textarea.search, input.search{background:#fff url(http://gfx.dagbladet.no/g3/input-bg.gif) repeat-x;border:1px solid #ccc;padding:3px;}
+
+hr { height:1px;border:0;color:#d3d3d3;background:#d3d3d3;margin:3px 0;padding:0;clear:both;}
+hr.gray{color:#ccc;background:#ccc;}
+hr.l-gray{color:#ddd;	background:#ddd;}
+hr.l-gray-s{color:#ddd;	background:#ddd;}
+hr.white{color:#fff;	background:#fff;}
+
+div.float-left{float:left;width:49%;}
+div.float-right{float:right;width:49%;}
+
+/* 
+.txt-red {color:#d60000 !important;}
+.txt-red a:link, .txt-red a:visited {color:#d60000 !important;}
+.txt-red a:focus, .txt-red a:hoover {color:#d60000 !important;} 
+*/
+.txt-black {color:#000 !important;}
+.txt-black a:link, .txt-black a:visited {color:#000 !important;}
+.txt-black a:focus, .txt-black a:hover {color:#000 !important;}
+
+.padding-small{padding:.5em;}
+.pointer{cursor:pointer;}
+.border{border:1px solid #000;}
+.noborder {border:0 !important;}
+.nopadding {padding:0 !important;}
+.nomargin {margin:0 !important;}
+.nobackground {background:transparent url(http://gfx.dagbladet.no/g3/fff.gif) !important;color:#000 !important;}
+.nobackground a{color:#000 !important;}
+.marginbottom {margin-bottom:10px !important;}
+
+ul.liststyle-disc,
+ul.liststyle-bomb{ margin:0 0 0 16px !important;}
+ul.liststyle-disc li{list-style-type:disc !important;}
+ul.liststyle-bomb li{list-style-type:disc}
+
+.opacity {opacity:0.7;filter: alpha(opacity=70);filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);-moz-opacity: 0.70; opacity:0.7;background:#fff;}
+.slideShow .opacity {opacity:0.4;filter: alpha(opacity=40);filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);-moz-opacity: 0.40; opacity:0.4;-ms-opacity:0.4;background:#000;}
+
+.crb{clear:both;}
+.cr{clear:both;font-size:0;line-height:0;height:0;}
+
+.clearfix:after,
+.ref:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+
+.clearfix,
+.ref {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix,
+* html .ref {height: 1%;}
+
+.clearfix,
+.ref {display: block;}
+
+/* End hide from IE-mac */
+.center{text-align:center;}
+
+#doc {background-color:#fff;width:972px;/*margin:0 auto;*/margin:0;padding:8px;border-color: #ccc;border-style:solid;border-width: 0 1px 1px 0}
+#header { margin:0;padding:0;font-size:0}
+#logo-header {}
+
+/* hvis midtstilling
+#content {margin:0 10px;width:972px;}
+*/
+
+#content {width:972px;margin:0}
+
+#footer {font: normal normal 10px verdana,arial,sans-serif;clear:both;border-top:1px solid #555;padding:10px 0;background:#fff;}
+#footer ul{margin-bottom:.5em;}
+#footer li{margin-bottom:.2em;}
+#footer img{vertical-align:bottom;}
+#footer .list{float:left;width:24%;margin:0 0 10px 0;display:inline;}
+#footer .list a:link, 
+#footer .list a:visited{color: #0C43CC;}
+#footer .list a:focus, 
+#footer .list a:hover{color:#d60000;}
+
+/**************** GRIDEN ****************/
+.grid-20-80 #main-col .grid-b,
+.grid-80-20 .grid-b {float:right;}
+.grid-20-80 .grid-b,
+.grid-80-20 #main-col .grid-b {float:left;}
+
+/* grid-20-80 & grid-80-20:L180 & R180 */
+.grid-20-80 #main-col .grid-b,
+.grid-80-20 #main-col .grid-b {width:775px;}
+.grid-20-80 .grid-b,
+.grid-80-20 .grid-b {width:180px;}
+
+/* all modules and grids nested in a grid get floated */
+.grid-g .grid-u,
+.grid-g .grid-g,
+.grid-ge .grid-u,
+.grid-gf .grid-u {float:right;display:inline;margin-bottom:0;}
+
+/* float left and kill margin on first for added flex */
+.grid-g .first,
+.grid-gd .first,
+.grid-ge .first,
+.grid-gf .first {float:left;margin-bottom:0;}
+
+.grid-g .grid-u,
+.grid-g .grid-g {width:49.1%;}
+.grid-g .grid-g .grid-u {width:48.1%;} 
+/* smaller for nested to preserve margins */
+
+/* 3 col */
+.grid-gb .grid-u,
+.grid-gc .grid-u,
+.grid-gd .grid-u {float:left;margin-left:2%;*margin-left:1.5%;_margin-left:1.5%;width:32%;_overflow:hidden;}
+
+.grid-gb .first,
+.grid-gc .first,
+.grid-gd .first {margin-left:0;}
+
+/* colspan 2 */
+.grid-gc .first,
+.grid-gd .grid-u {width:66%;}
+.grid-gd .first {width:32%;}
+
+/* colspan 3 */
+.grid-ge .grid-u {width:24%;}
+.grid-ge .first,
+.grid-gf .grid-u {width:74.2%;}
+.grid-gf .first {width:24%;}
+.grid-ge .first {width:74.2%;}
+
+#doc:after,
+#content:after,
+#header:after,
+#logo:after,
+#footer:after,
+.grid-g:after,
+.grid-ga:after,
+.grid-gb:after,
+.grid-gc:after,
+.grid-gd:after,
+.grid-ge:after,
+.grid-gf:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+
+#doc,
+#logo,
+#footer,
+.grid-g,
+.grid-gb,
+.grid-gc,
+.grid-gd,
+.grid-ge,
+.grid-gf,
+.grid-ga {zoom:1; /* IE */margin-bottom:15px;}
+
+img.float-left {float:left;	margin:0 .5em .5em 0;}
+img.float-right {float:right;margin:0 0 .2em .5em;}
+
+/**************** menu bar ****************/
+
+/* site map lay-out */
+
+#header h1 {width:972px;margin:-5px 0 10px 0;padding:0;text-align:center;font: normal bold 50px arial,verdana,sans-serif;border-bottom:1px solid #ccc;text-transform:capitalize}
+
+/**************** refferals ****************/
+
+.module-box.l-gray .grid-u{width:240px!important;padding:0!important;margin: 0 9px!important;_margin: 0 6px!important;}
+
+.ref {border-top:1px solid #d3d3d3;margin-top:5px}
+.ref .container {margin:7px 2px 0 2px;overflow:hidden;}
+.ref .container h1{color:#FFF;background:#000;padding:2px;font-size:21px;margin:0 0 5px 0;text-align:center;text-transform:uppercase;}
+.ref img {border:1px solid #000;}
+.ref p img{border:none;}
+.ref ul {margin-top:3px}
+.ref ul li a b {color:#000;text-decoration:none;}
+.ref h2{font-size:22px;line-height:105%;margin-bottom:2px;}
+
+/*stikktittel, oppslag*/
+.mod-100 h1{ margin:5px;}
+
+.mod-100 .ref h2{line-height:100%;margin-bottom:2px;}
+.ref h2 big{font-size:150%;}
+
+.ref h2 a:link,
+.ref h2 a:visited{color:#000;text-decoration:none;}
+.ref h2 a:hover,
+.ref h2 a:focus{color:#000;text-decoration:underline;}
+
+.mod-100 img.float-left {margin-right:5px;}
+
+
+a.comments,
+a.poll,
+a.net-meeting,
+a.slideshow,
+a.kjendis,
+a.bullet-w,
+a.bullet-g,
+a.bullet-r,
+li.bullet-w,
+li.bullet-g,
+li.bullet-r,
+li.phone
+{
+background-image: url(http://gfx.dagbladet.no/g3/gen_icons_white.gif);
+background-repeat: no-repeat;
+zoom: 1;
+}
+
+.black a.comments,
+.black a.poll,
+.black a.net-meeting,
+.black a.slideshow,
+.black a.kjendis,
+.black a.bullet-w,
+.black a.bullet-g,
+.black a.bullet-r,
+.black li.bullet-w,
+.black li.bullet-g,
+.black li.bullet-r,
+.black li.phone
+{
+background-image: url(http://gfx.dagbladet.no/g3/gen_icons_black.gif);
+}
+
+a.comments,
+a.poll,
+a.net-meeting,
+a.slideshow,
+a.kjendis
+{
+padding: 0 23px 0 1px;
+white-space: nowrap;
+}
+
+a.mainUrl /* Les mer-linker på front */
+{
+white-space: nowrap;
+}
+
+a.bullet-w,
+a.bullet-g,
+a.bullet-r
+{
+padding: 0 1px 0 23px;
+}
+
+a.dbtv
+{
+background: transparent!important;
+}
+
+a.comments
+{
+background-position: top right;
+}
+
+a.poll
+{
+background-position: 100% -192px;
+}
+
+a.net-meeting
+{
+background-position: 100% -128px;
+}
+
+a.slideshow
+{
+background-position: 100% -144px;
+}
+
+a.kjendis
+{
+background-position: 100% -160px;
+}
+
+a.bullet-w, 
+li.bullet-t,
+a.bullet-r,
+li.bullet-r,
+a.bullet-g,
+li.bullet-g
+{
+background-position: 0 -224px;
+}
+
+ul.vertical-lf li.bullet-g 
+{
+background-position: 0 -224px;
+}
+
+li.phone
+{
+background-position: 0 -80px;
+}
+
+a.live {background:url(http://gfx.dagbladet.no/g3/ico_live.gif) no-repeat;} 
+/* live er animert gif, ligger derfor i egen fil */
+
+
+/*
+a.poll {background:url(http://gfx.dagbladet.no/g3/ico_chart_bar.png) no-repeat;}
+a.net-meeting {background:url(http://gfx.dagbladet.no/g3/ico_net_meeting.png) no-repeat;}
+a.dbtv {padding:0}
+a.slideshow {background:url(http://gfx.dagbladet.no/g3/ico_camera.png) no-repeat;}
+a.kjendis {background:url(http://gfx.dagbladet.no/g3/ico_kjendis.png) no-repeat;}
+a.bullet-w {background:url(http://gfx.dagbladet.no/g3/bullet_white.png) no-repeat;}
+a.bullet-g {background:url(http://gfx.dagbladet.no/g3/bullet_gray.png) no-repeat;}
+a.bullet-r {background:url(http://gfx.dagbladet.no/g3/bullet_red.png) no-repeat;}
+*/
+
+/* 
+a.comments, 
+a.live,
+a.poll,
+a.net-meeting,
+a.dbtv,
+a.slideshow,
+a.kjendis,
+a.bullet-w,
+a.bullet-g,
+a.bullet-r {padding:0 23px 0 1px;***adding:0 70px 0 1px;background-position:right;***ackground-position:55px 0;}
+*/
+
+/* 
+ul.horisontal-lf li,
+ul.vertical-lf li {background-repeat:no-repeat;background-position:left top;} 
+*/
+ul.vertical-lf{clear:both;}
+ul.horisontal-lf li {float:left;}
+ul.horisontal-lf li a{display:block;padding:0 15px 2px 22px;}
+ul.vertical-lf li a{padding:0 0 0 22px;font-size:11px;}
+.horisontal-lf li a{white-space:nowrap;}
+
+/*
+
+li.comments {background-image:url(http://gfx.dagbladet.no/g3/ico_comment.png);}
+li.comment {background-image:url(http://gfx.dagbladet.no/g3/ico_comment.png);}
+li.live {background-image:url(http://gfx.dagbladet.no/g3/ico_live.png);}
+li.poll {background-image:url(http://gfx.dagbladet.no/g3/ico_chart_bar.png);}
+li.net-meeting {background-image:url(http://gfx.dagbladet.no/g3/ico_net_meeting.png);}
+li.dbtv {background-image:url(http://gfx.dagbladet.no/g3/ico-play.gif);}
+.playknapp .ref .container p a {background:url(http://gfx.dagbladet.no/g3/ico-play.gif) no-repeat;padding:0 20px 0 0;background-position: right 2px;}
+li.print {background-image:url(http://gfx.dagbladet.no/g3/ico_printer.png);}
+li.mail {background-image:url(http://gfx.dagbladet.no/g3/ico_email.png);}
+li.phone {background-image:url(http://gfx.dagbladet.no/g3/ico_phone.png);}
+li.slideshow {background-image:url(http://gfx.dagbladet.no/g3/ico_camera.png);}
+li.kjendis {background-image:url(http://gfx.dagbladet.no/g3/ico_kjendis.png);}
+li.bullet-w {background-image:url(http://gfx.dagbladet.no/g3/bullet_white.png);}
+li.bullet-g {background-image:url(http://gfx.dagbladet.no/g3/bullet_gray.png);}
+li.bullet-r {background-image:url(http://gfx.dagbladet.no/g3/bullet_red.png);}
+
+*/
+
+.black ul.vertical-lf li.bullet-g {background:url(http://gfx.dagbladet.no/g3/bullet-white-negative.gif) no-repeat }
+
+
+ul.bullet-list li{padding-left: 20px!important;background-image: url(http://gfx.dagbladet.no/g3/gen_icons_white.gif);background-repeat: no-repeat;background-position: 0 191px; margin-bottom:5px}
+
+.mod-33 .to a.tipslink, .mod-25 .to a.tipslink {width:40px;height:34px;line-height:17px;}
+.mod-33 .to .ttext {height:34px;padding:4px;width:185px;}
+.mod-25 .to .ttext {height:34px;padding:4px;width:120px;}
+.mod-33 .to span, .mod-25 .to span {display:block;line-height:10px;font-size:10px}
+
+.mod-100 .to a.tipslink {width:120px;}
+
+.mod-100 .to .ttext {width:635px;}
+.mod-66 .to .ttext {width:420px;}
+.mod-50 .to .ttext {width:290px;}
+
+.mod-100 .black .to .ttext {width:615px;}
+.mod-66 .black .to .ttext {width:408px;}
+.mod-50 .black .to .ttext {width:275px;}
+.mod-33 .black .to .ttext {width:175px;}
+.mod-25 .black .to .ttext {width:108px;}
+
+.black .to {color:#000}
+.black .to .ttext a:link, .black .to a:visited {color:#03c!important}
+.black .to .ttext a:hover {color:#d60000!important}
+
+
+/* / tips-oss */
+
+
+
+.article-body .tips-oss {width:503px;clear:both;margin-top:5px;text-align:center;}
+.article-body .tips-oss-l {width:503px;color:#fff;font:italic bold 16px arial,verdana,sans-serif;letter-spacing:3px;background:#e00;}
+.article-body .tips-oss-r {width:503px;background:#ddd;height:20px;font: normal bold 12px verdana,arial,sans-serif;padding:3px 0}
+
+/****************  title sizes ****************/
+h1.size-01, h2.size-01 {font-size:15px;}
+h1.size-02, h2.size-02 {font-size:18px;}
+h1.size-03, h2.size-03 {font-size:20px;} /*default*/
+h1.size-04, h2.size-04 {font-size:24px;}
+h1.size-05, h2.size-05 {font-size:27px;}
+h1.size-06, h2.size-06 {font-size:30px;}
+h1.size-07, h2.size-07 {font-size:33px;}
+h1.size-08, h2.size-08 {font-size:36px;} /*dagens m*/
+h1.size-09, h2.size-09 {font-size:39px;}
+h1.size-10, h2.size-10 {font-size:42px;}
+h1.size-11, h2.size-11 {font-size:45px;}
+h1.size-12, h2.size-12 {font-size:48px;} /*dagens l*/
+h1.size-13, h2.size-13 {font-size:51px;}
+h1.size-14, h2.size-14 {font-size:54px;}
+h1.size-15, h2.size-15 {font-size:57px;}
+h1.size-16, h2.size-16 {font-size:60px;}
+h1.size-17, h2.size-17 {font-size:63px;} /*dagens xl*/
+h1.size-18, h2.size-18 {font-size:66px;}
+h1.size-19, h2.size-19 {font-size:69px;}
+h1.size-20, h2.size-20 {font-size:72px;} /*dagens xxl*/
+h1.size-21, h2.size-21 {font-size:75px;} 
+h1.size-22, h2.size-22 {font-size:78px;} 
+h1.size-23, h2.size-23 {font-size:81px;} 
+h1.size-24, h2.size-24 {font-size:84px;} 
+h1.size-25, h2.size-25 {font-size:87px;} 
+h1.size-26, h2.size-26 {font-size:90px;} 
+h1.size-27, h2.size-27 {font-size:93px;} 
+h1.size-28, h2.size-28 {font-size:96px;} 
+h1.size-29, h2.size-29 {font-size:99px;} 
+h1.size-30, h2.size-30 {font-size:102px;}
+h1.size-31, h2.size-31 {font-size:150px;}
+h1.size-32, h2.size-32 {font-size:200px;}
+h1.size-33, h2.size-33 {font-size:250px;}
+h1.size-34, h2.size-34 {font-size:300px;}
+h1.size-35, h2.size-35 {font-size:350px;}
+h1.normal, h2.normal {font-weight:normal;}
+.ref p small {font-size:11px;}
+.ref p big {font-size:114%;}
+
+#videoplayerframe {font:normal normal 12px verdana,arial,sans-serif};
+.dplayer {margin-left:-4px;}
+
+/**************** refferal-bar boxes ****************/
+#sistevideo .container, #sistenytt .container, #tvprogram .container {font-size:11px;padding:.5em;overflow:hidden;word-wrap: break-word;}
+#sistenytt, #sistevideo, #tvprogram {margin-bottom:10px;margin-top:10px;}
+#sistenytt .container div, #sistevideo .container div{font-size:11px;color:#666;display:inline}
+#sistenytt .container span{font-size:10px;color:#666;margin-left:.5em;}
+#sistenytt p a:link,#sistenytt p a:visited{color: #0C43CC;font-weight:bold;}
+#sistenytt p a:hover,#sistenytt p a:focus{color:#d60000;font-weight:bold;}
+#sistenytt li,#sistevideo li{margin-bottom:.5em;}
+#sistenytt li a,#sistevideo li a {display:block;}
+#sistenytt h2, #sistevideo h2{margin:0 0 .2em .5em;font-size:15px;color:#000;}
+#tvprogram h2.boxhead, #tvprogram h2.boxhead a {font-size:15px;color:#000;text-decoration:none;}
+
+div.magasinet {background:#fff url(http://gfx.dagbladet.no/g3/magasinet_stripe.gif) repeat-x left top;text-align:center;color:#fff;height:16px;font: normal normal 10px arial,verdana,sans-serif;padding-top:2px;}
+
+#tvguide{background:#EEEEEE url(http://gfx.dagbladet.no/g3/l-gray-bg.gif) repeat-x left top;margin-bottom:10px;}
+#tvguide .head{padding:.5em;border-bottom:1px solid #fff;margin-bottom:.5em;}
+#tvguide .head p{float:right;width:290px;height:20px;}
+#tvguide label {float:right;margin-right: 20px;}
+#tvguide .head a.tvprog-knapp:link,
+#tvguide .head a.tvprog-knapp:visited{float:right;border: 1px solid #ddd;padding: 2px 4px;display:block;width:130px;font-size: 11px;font-weight: bold;text-decoration: none;color: #3a5a7a;text-align:center;background: #fff url(http://gfx.dagbladet.no/kommentarer/button-gradient.gif) repeat-x;}
+#tvguide .head a.tvprog-knapp:hover {border-color: #888;}
+#tvguide .head a.tvprog-knapp:active {border-color: #333;}
+#tvguide .head a.tvprog-knapp:focus {-moz-outline: none;outline: none;}
+#linkContainer {float:right;}
+#linkContainer a:link,#linkContainer a:visited,#linkContainer a:hover,#linkContainer a:active{color: #0C43CC;}
+#tvguide .first{margin-left:0;}
+#tvguide h2{font-size:21px;}
+#tvguide p.lesmer{margin:0 .5em;}
+#tvguide p.lesmer img{float:right;}
+#tvguide p.lesmer a:link,#tvguide p.lesmer a:visited{color: #0C43CC;}
+#tvguide p.lesmer a:hover,#tvguide p.lesmer a:focus{color:#d60000;}
+
+.tv-chanel .prog-noon,
+.tv-chanel .program-desc{font-size:11px;margin-bottom:.5em;}
+.tv-chanel .program-desc{padding-left:10px;display:none;}
+.tv-chanel li{ margin-bottom:1px;}
+.tv-chanel{float:left;;width:23.5%;}
+.tv-chanel .container {margin:10px 5px 10px 5px!important;overflow:hidden;}
+.tv-chanel .finished {color:#d3d3d3;}
+.tv-chanel img.terning {float:right;margin:5px}
+
+div#tvguide h2.tvkanal { display: block; height: 29px; width: 54px; background-repeat: no-repeat; background-image: url(http://gfx.dagbladet.no/g3/tv-kanaler-samlet.gif); margin-top:10px}
+
+div#tvguide h2.tvkanal.nrk1 { background-position: 0 0; margin:14px 0 0 3px}
+
+div#tvguide h2.tvkanal.nrk2 { background-position: 0 -29px; margin:12px 0 0 1px}
+
+div#tvguide h2.tvkanal.nrk3 { background-position: 0 -58px; margin:12px 0 0 2px}
+
+div#tvguide h2.tvkanal.tv2 { background-position: 0 -144px; margin: 10px 0 0 15px}
+
+div#tvguide h2.tvkanal.tv2zebra { background-position: 0 -259px; margin:12px 0 0 2px}
+
+div#tvguide h2.tvkanal.fem { background-position: 0 -87px; margin:12px 0 0 5px}
+
+div#tvguide h2.tvkanal.tvnorge { background-position: 0 -200px; margin:12px 0 0 15px}
+
+div#tvguide h2.tvkanal.star { background-position: 0 -288px; margin:12px 0 0 0}
+
+div#tvguide h2.tvkanal.tv3 { background-position: 0 -173px; margin:12px 0 0 15px}
+
+div#tvguide h2.tvkanal.discovery { background-position: 0 -116px; margin:13px 0 0 3px}
+
+div#tvguide h2.tvkanal.viasat4 { background-position: 0 -230px; margin:14px 0 0 12px}
+
+/**************** refferal customizing + sidebar + rounded corners lay-out ****************/
+.module-box {padding-bottom:.2em;padding-left:5px;margin: 10px 0;border:none;overflow:hidden;}
+.grid-gb .module-box {margin-bottom:0;}
+
+.l-azur .container,
+.l-blue .container,
+.l-lightazur .container,
+.l-yellow .container,
+.l-lightyellow .container,
+.l-xlightyellow .container,
+.l-gray .container,
+.l-gray-s .container,
+.l-gray-xs .container,
+.l-gray ul {margin:0 5px;}
+.l-gray .container ul {margin:5px 0}
+
+.open {margin:10px 0;border:1px solid #bababa;border-right:none;border-left:none;}
+
+.module-box h1{font-size:15px;width:auto;height:auto;color:#000;margin:0 7px;}
+.module-box h2 {margin: 0 10px 10px 0px;}
+.module-box span.header-sub {font: normal bold 11px arial,verdana,sans-serif;color:#fb0;float:right;margin-bottom:0 0 5px 0;padding:2px 0pt 5px 0px;}
+
+.subtext {font:normal normal 10px verdana,arial,sans-serif;color:#666;}
+
+.module-box h1 img{	display:block;margin:-1px 0 0 -3px;}
+.module-box ul{	margin-bottom:.5em;}
+.module-box img.dice{float:right;margin:0 5px;}
+.module-box .ref {border-top:0;}
+.module-box form .boxtop {display:none}
+.module-box form .box select {width:60px}
+
+.tipsheader {margin-top:10px}
+.tipsheader h1 {background:#d60000 url(http://gfx.dagbladet.no/g3/h1-header-back.jpg) repeat-x left bottom;color:#fff;margin:0 0 5px 0;padding:0 8px 5px 8px;font:normal bold 15px arial;}
+.tipsheader b.xtop b {background-color:#d60000}
+.tipsheader hr {height:2px;}
+#tipsbox h1 {font-size:22px}
+
+
+
+.header1 h1 a:link, 
+.header2 h1 a:link, 
+.header2 h1 a:visited, 
+.header1 h1 a:visited {text-decoration:none;color:#fff;}
+
+.header1 h1 a:hover, 
+.header2 h1 a:hover {text-decoration:underline;color:#fff;}
+.header1 h1 a:active, 
+.header2 h1 a:active {text-decoration:none;color:#fff}
+
+.header1 h1, .header2 h1 {background:#777 url(http://gfx.dagbladet.no/g3/h1-header-back.jpg) repeat-x scroll left bottom;color:#fff;font: normal bold 15px arial, verdana,sans-serif;margin:0pt 0pt 5px;padding:0pt 5px 7px 5px;}
+
+.header2 h1 {background-image:url(http://gfx.dagbladet.no/g3/h1-header-back2.jpg)}
+
+.header1 b.xtop b, .header2 b.xtop b {background-color:#777}
+
+.header1-hestesport b.xtop b {background-color:#73880a;}
+.header1-hestesport h1 {background:#73880a;	color:#fff;	font: normal bold 15px arial, verdana,sans-serif;margin:0pt 0pt 5px;padding:0pt 2pt 5px 5px;}
+
+.header2 .ref, .header1 .ref {border:none}
+
+
+
+.mod-100 .ref.black {margin-top:15px!important;}
+.ref.black {background:#000;margin:5px 0 0 0;padding:0;border-color:#000;overflow:hidden}
+.ref.black .container{color:#fff;padding:0;margin:8px 0 8px 8px!important;clear:both;border-right:8px solid black;overflow:hidden;}
+.ref.black img{border-color: #fff;margin:0 0 0 0;padding:0}
+.ref.black h2 a,.ref.black h2 a:hover,.ref.black h2 a:focus,.ref.black a,.ref.black a:hover,.ref.black a:focus{color:#fff!important;}
+
+.ref.black .reduceimg {overflow:hidden;border-right:1px solid #fff;margin-bottom:5px;float:left;margin-right:5px;}
+
+.ref.black h1{background-color:#000;color:#fff!important;margin: 0 0 8px 0}
+
+.ref.black .container .tips-oss-r { color: #000; }
+.ref.black .container .tips-oss-r a, .ref.black .container .tips-oss-r a:link, .ref.black .container .tips-oss-r a:hover, .ref.black .container .tips-oss-r a:focus { color: #000!important; }
+
+.gray{background-color:#efefef;color:#000;border-color:#ddd;}
+.gray h1{background-color:#efefef;color:#000;}
+
+.darkgray{background-color:#777;color:#fff;}
+.darkgray h1{background-color:#777;color:#fff;}
+
+.mediumgray{background-color:#ddd;color:#fff;}
+.mediumgray h1{background-color:#ddd;color:#fff;}
+
+.white{background-color:#fff;color:#000;border-color:#ddd;}
+.white h1{background-color:#fff;color:#000;border-top:1px solid #000;}
+
+.blue{background-color:#E0F3FF;color:#000;border-color:#005E96;}
+.blue h1{background-color:#005E96;color:#fff;}
+h1.blue{background-color:#005E96;color:#fff;}
+
+.violet{background-color:#EFE0FF;color:#000;border-color:#7C2897;}
+.violet h1{background-color:#7C2897;color:#fff;}
+
+.red{background-color:#e00;color:#fff;er-color:#EB6090;}
+.red h1{background-color:#d60000;color:#fff;}
+h1.red{background-color:#d60000;color:#fff;}
+
+.pink{background-color:#FFE1EE;color:#000;border-color:#EB6090;}
+.pink h1{background-color:#EB6090;color:#fff;}
+h1.pink{background-color:#EB6090;color:#fff;}
+
+.beige{background-color:#FCEDDA;color:#000;border-color:#FFD5AC;}
+.beige h1{background-color:#FFD5ACs;color:#000;}
+
+.rtop,.rbottom{display:block}
+.rtop *,.rbottom *{display:block;height: 1px;overflow: hidden}
+.r1{margin:0 5px}
+.r2{margin:0 3px}
+.r3{margin:0 2px}
+.r4{margin:0 1px;height: 2px}
+.rs1{margin:0 2px}
+.rs2{margin:0 1px}
+.xtop, .xbottom {display:block; background:#fff; font-size:1px;clear:both}
+.black .xtop, .black .xbottom {background:#000;}
+.xt1, .xt2, .xt3, .xt4, .xb1, .xb2, .xb3, .xb4 {display:block; overflow:hidden;}
+.xt1, .xt2, .xt3, .xt4, .xb1, .xb2, .xb3, .xb4 {height:1px;}
+.xt1, .xb1 {margin:0 4px;}
+.xt2, .xb2 {margin:0 2px;}
+.xt3, .xb3 {margin:0 1px;}
+.xt4, .xb4 {margin:0 1px;}
+
+/* standard fargeutvalg */
+.l-color1 .xt1, .l-color1 .xt2, .l-color1 .xt3, .l-color1 .xt4 {background:#34749a;}
+.l-color1 .xb1, .l-color1 .xb2, .l-color1 .xb3, .l-color1 .xb4 {background:#34749a;}
+.l-color1 {background:#34749a;color:#fff}
+.l-color1 hr {background:#195270;color:#195270}
+
+
+.l-color1 a{color: #fff!important;}
+
+
+.l-color2 .xt1, .l-color2 .xt2, .l-color2 .xt3, .l-color2 .xt4 {background:#FFE56F;}
+.l-color2 .xb1, .l-color2 .xb2, .l-color2 .xb3, .l-color2 .xb4 {background:#FFE56F;}
+.l-color2 {background:#FFE56F;color:#000}
+.l-color2 hr {background:#fff;color:#000}
+
+.l-color3 .xt1, .l-color3 .xt2, .l-color3 .xt3, .l-color3 .xt4 {background:#323232;}
+.l-color3 .xb1, .l-color3 .xb2, .l-color3 .xb3, .l-color3 .xb4 {background:#323232;}
+.l-color3 {background:#323232;}
+.l-color3 hr {background:#000;}
+
+.l-color4 .xt1, .l-color4 .xt2, .l-color4 .xt3, .l-color4 .xt4 {background:#d5efc2;}
+.l-color4 .xb1, .l-color4 .xb2, .l-color4 .xb3, .l-color4 .xb4 {background:#d5efc2;}
+.l-color4 {background:#d5efc2;}
+.l-color4 hr {background:#fff;}
+
+.l-color-tax .xt1, .l-color-tax .xt2, .l-color-tax .xt3, .l-color-tax .xt4 {background:#d1e49b;}
+.l-color-tax .xb1, .l-color-tax .xb2, .l-color-tax .xb3, .l-color-tax .xb4 {background:#d1e49b;}
+.l-color-tax {background:#d1e49b;color:#000}
+.l-color-tax hr {background:#fff;color:#fff}
+
+.l-color-fb .xt1, .l-color-fb .xt2, .l-color-fb .xt3, .l-color-fb .xt4 {background:#eceff5;}
+.l-color-fb .xb1, .l-color-fb .xb2, .l-color-fb .xb3, .l-color-fb .xb4 {background:#eceff5;}
+.l-color-fb {background:#eceff5;color:#3b5998}
+.l-color-fb hr {background:#3b5998;color:#3b5998}
+
+
+.header-color1 .xt1, .header-color1 .xt2, .header-color1 .xt3, .header-color1 .xt4, 
+.l-blue.header-color1 .xt1, .l-blue.header-color1 .xt2, .l-blue.header-color1 .xt3, .l-blue.header-color1 .xt4 {background:#34749a; } /* bokser med mørkeblå header */
+
+.header-color1 h1 { background: #34749a; color: #fff; margin: 0 0 5px 0; padding: 0 5px 3px 5px; }
+
+.l-blue .xt1, .l-blue .xt2, .l-blue .xt3, .l-blue .xt4 {background:#e1eaf0;}
+.l-blue .xb1, .l-blue .xb2, .l-blue .xb3, .l-blue .xb4 {background:#e1eaf0;}
+.l-blue{ background:#e1eaf0;}
+
+.l-weather {background: #9ec34e url(http://gfx.dagbladet.no/g3/l-weather-bg.gif) top center repeat-x;}
+
+.l-weather .xt1 {background:#98bf45;}
+
+.l-weather .xt2 {background:#98c046;}
+
+.l-weather .xt3 {background:#99bf46;}
+
+.l-weather .xt4 {background:#9ac047;}
+
+.l-weather .xb1, .l-weather .xb2, .l-weather .xb3, .l-weather .xb4 {background:#9ec34e;}
+
+/*small boxes, min-height min 70px */
+.l-blue-s .xt1, .l-blue-s .xt2, .l-blue-s .xt3, .l-blue-s .xt4 {background:#e1eaf0;}
+.l-blue-s .xb1, .l-blue-s .xb2, .l-blue-s .xb3, .l-blue-s .xb4 {background:#e1eaf0}
+.l-blue-s{ background:#e1eaf0}
+
+
+.l-bath .xt1, .l-bath .xt2, .l-bath .xt3, .l-bath .xt4 {background:#B2E8ED;}
+.l-bath .xb1, .l-bath .xb2, .l-bath .xb3, .l-bath .xb4 {background:#B2E8ED;}
+.l-bath {background:#B2E8ED;}
+
+
+
+.l-gray .xt1, .l-gray .xt2, .l-gray .xt3, .l-gray .xt4 {background:#ddd;}
+.l-gray .xb1, .l-gray .xb2, .l-gray .xb3, .l-gray .xb4 {background:#eee;}
+.l-gray {background:#eee url(http://gfx.dagbladet.no/g3/l-gray-bg.gif) repeat-x;}
+
+.l-black .xt1, .l-black .xt2, .l-black .xt3, .l-black .xt4 {background:#000;}
+.l-black .xb1, .l-black .xb2, .l-black .xb3, .l-black .xb4 {background:#000;}
+.l-black {background:#000;color:#fff;}
+
+.l-red .xt1, .l-red .xt2, .l-red .xt3, .l-red .xt4 {background:#d60000;}
+.l-red .xb1, .l-red .xb2, .l-red .xb3, .l-red .xb4 {background:#d60000;}
+.l-red {background:#d60000;color:#fff;}
+
+.l-green .xt1, .l-green .xt2, .l-green .xt3, .l-green .xt4 {background:#d9e1bd;}
+.l-green .xb1, .l-green .xb2, .l-green .xb3, .l-green .xb4 {background:#d9e1bd;}
+.l-green {background:#d9e1bd}
+
+
+.l-darkgray .xt1, .l-darkgray .xt2, .l-darkgray .xt3, .l-darkgray .xt4 {background:#777;}
+.l-darkgray .xb1, .l-darkgray .xb2, .l-darkgray .xb3, .l-darkgray .xb4 {background:#777;}
+.l-darkgray {background: #777;color:#fff}
+
+.l-mediumgray .xt1, .l-mediumgray .xt2, .l-mediumgray .xt3, .l-mediumgray .xt4 {background:#ddd;}
+.l-mediumgray .xb1, .l-mediumgray .xb2, .l-mediumgray .xb3, .l-mediumgray .xb4 {background:#ddd;}
+.l-mediumgray {background: #ddd;color:#fff}
+
+/*small boxes, min-height 70px*/
+.l-gray-s .xt1, .l-gray-s .xt2, .l-gray-s .xt3, .l-gray-s .xt4 {background:#ddd;}
+.l-gray-s .xb1, .l-gray-s .xb2, .l-gray-s .xb3, .l-gray-s .xb4 {background:#eee;}
+.l-gray-s {background:#eee url(http://gfx.dagbladet.no/g3/l-gray-bg-s.gif) repeat-x;}
+
+.l-gray-xs .xt1, .l-gray-xs .xt2, .l-gray-xs .xt3, .l-gray-xs .xt4 {background:#dedede;}
+.l-gray-xs .xb1, .l-gray-xs .xb2, .l-gray-xs .xb3, .l-gray-xs .xb4 {background:#dedede;}
+.l-gray-xs {background:#dedede;}
+
+.l-green-s .xt1, .l-green-s .xt2, .l-green-s .xt3, .l-green-s .xt4 {background:#d9e1bd;}
+.l-green-s .xb1, .l-green-s .xb2, .l-green-s .xb3, .l-green-s .xb4 {background:#d9e1bd;}
+.l-green-s {background:#d9e1bd}
+
+.l-green-xs .xt1, .l-green-xs .xt2, .l-green-xs .xt3, .l-green-xs .xt4 {background:#d9e1bd;}
+.l-green-xs .xb1, .l-green-xs .xb2, .l-green-xs .xb3, .l-green-xs .xb4 {background:#d9e1bd;}
+.l-green-xs {background:#d9e1bd;}
+
+.l-beige .xt1, .l-beige .xt2, .l-beige .xt3, .l-beige .xt4 {background:#f0e5d5;}
+.l-beige .xb1, .l-beige .xb2, .l-beige .xb3, .l-beige .xb4 {background:#f7f0e6;}
+.l-beige{background:#f7f0e6 url(http://gfx.dagbladet.no/g3/l-beige-bg.gif) repeat-x;}
+.orange .xt1, .orange .xt2, .orange .xt3, .orange .xt4 {background:#FF8A00;}
+.orange .xb1, .orange .xb2, .orange .xb3, .orange .xb4 {background:#ffbc6d;}
+.orange{background:#ffbc6d url(http://gfx.dagbladet.no/g3/orange-bg.gif) repeat-x;}
+#egenannonse .xt1, #egenannonse .xt2, #egenannonse .xt3, #egenannonse .xt4 {background:#eee;}
+#blink-big .xt1, #blink-big .xt2, #blink-big .xt3, #blink-big .xt4 {background:#abcef2;}
+#blink-big .xb1, #blink-big .xb2, #blink-big .xb3, #blink-big .xb4 {background:#699bce;}
+
+/* DEBATT */
+.quote div.quote-sign,
+.quote-small div.quote-sign {font-family:arial,helvetica,sans-serif;float:left;font-weight:bold;margin-right:5px;margin-top:5px;color:#f01;}
+
+.quote div.quote-sign {font-size:75px;height:35px;line-height:20px;}
+.quote-small div.quote-sign {font-size:30px;height:14px;line-height:10px;}
+
+.quote span.quote-txt,
+.quote-small span.quote-txt {font-size:17px;}
+
+.quote p.quote-writer,
+.quote-small p.quote-writer {color:#d60000;font-weight:bold;font-size:11px;}
+
+.quote p.quote-writer a:link, .quote p.quote-writer a:visited,
+.quote-small p.quote-writer a:link, .quote-small p.quote-writer a:visited {color:#d60000;text-decoration:none;}
+
+.quote p.quote-writer a:hover, .quote p.quote-writer a:focus,
+.quote-small p.quote-writer a:hover, .quote-small p.quote-writer a:focus {color:#d60000;text-decoration:underline;}
+
+
+#side-col {word-wrap: break-word;overflow:hidden;}
+#side-col .module-box {margin:10px 0}
+#side-col .news {font-size:11px}
+
+#side-col .news h3 a,
+#right-col .news h3 a {font:normal bold 18px arial,verdana,sans-serif;color:#000;text-decoration:none!important}
+
+#side-col .news h3 a:hover,
+#right-col .news h3 a:hover{text-decoration: underline;}
+
+#right-col .news img.img75{float: left;margin-right: .4em;margin-bottom: 3px;}
+#right-col .news { margin-left: 4px }
+#side-col img.article-img {width:180px;}
+
+/*brukes når topp og høyreannonse møtes */
+.attached { position:absolute;top:150px;right:0;width:190px;}
+
+#side-col p.lesmer{text-align:center;font-size:11px;text-align:center;font-weight:bold;}
+#side-col p.lesmer a:link,#side-col p.lesmer a:visited{color: #0C43CC;}
+#side-col p.lesmer a:hover,#side-col p.lesmer a:focus{color:#d60000;}
+
+.grid-u #right-col {font-size: 11px;}
+
+img.subsection-head{border:0;width:180px;height:30px;}
+
+#sportdottno h1 a{text-decoration:none;color:#fff;font-size:22px}
+
+#nyheter h1,
+#kjendis h1,
+#sportdottno h1,
+#dagbladettv h1,
+#reisetips h1 {	font-size:15px;	margin:0 0 5px 5px;}
+
+#nyheter h1 a:link, #nyheter h1 a:visited,
+#nyheter h1 a:hover, #nyheter h1 a:focus{color:#000;text-decoration:none;}
+
+#nyheter h2,
+#kjendis h2,
+#spill123 h2,
+#start h2,
+#humor911 h2,
+#hei h2,
+#sportdottno h2,
+#reisetips h2,
+#dagbladettv h2{font-weight:normal;	font-family: verdana,arial,sans-serif;margin:5px 0;}
+#toolbox h2, #dagbladetbox h2 {	font-size:15px;}
+#dagbladetbox {font-size:11px}
+
+#toolbox form h2,#filmbasen form h2 {display:none;}
+#toolbox input.search{width:160px;_width:155px;_margin:0px;font-size:16px;margin: 5px 0 0 2px;}
+.grid-u.mod-33 #toolbox input.search {width:225px;}
+
+#toolbox input.button{position:absolute;op:69px;bottom:0;right:0;font-size:16px;padding:.2em .5em;}
+#toolbox li {margin:2px;_margin:0;}
+
+#filmonline ol {list-style-type: decimal;margin-left:30px;}
+#filmonline li {margin-bottom: 0.2em;}
+
+#kjendis,
+#nyheter,
+#sportdottno,
+#start,
+#humor911,
+#hei,
+#reisetips,
+#dagbladettv,
+#filmbasen,
+#spill123,
+#nydottno,
+#tipsbox,
+#filmonline {margin:8px 0;font-size:11px}
+
+#toolbox, 
+#dagbladetbox {margin:10px 0;position:relative;}
+
+#dagbladetbox img.tab{position:absolute;top:30px;right:0;}
+#toolbox form {	position:relative;margin-bottom:10px;}
+#filmbasen form {position:relative;margin-bottom:0;}
+
+#toolbox form h2,
+#filmbasen form h2 {display:none;}
+
+#side-col .db-search {margin:3px;}
+#side-col .db-search span.title {font:normal normal 11px verdana,arial,sans-serif;margin:0 5px;color:#666;padding:0;}
+#side-col .db-search input.search{margin:0 0 0 5px;padding: 2px;width: 110px;}
+#side-col .db-search input.button{padding: 1px 3px;margin:0;font-size:12px;color:#444;}
+
+#filmbasen input.search {width:60%;font-size:16px;border:1px solid #ccc}
+#filmbasen input.button{position:absolute;op:69px;bottom:0;right:0;font-size:14px;padding:.2em .5em;}
+#filmbasen p.extratxt {font-size:10px;margin-bottom:.3em;color:#7C2897;font-family:arial,helvetica,sans-serif;}
+#filmbasen img.filmlex {margin:0 auto;width:166px;/*height:22px;*/display:block;}
+
+#dagbladettv .container {margin:5px;font-size:11px;}
+#dagbladettv .container img {float:left;margin:3px;margin-left:0;}
+
+#dagbladettv h4 a:link, 
+#dagbladettv h4 a:visited{font: normal 100% verdana,arial,sans-serif;clear:left;}
+
+#dagbladettv .container p a:link, 
+#dagbladettv .container p a:link {margin:4px 0 0 4px;}
+
+#dagbladettv hr,
+#nydottno hr {margin:2px 0;}
+
+#spill123 li img {	border:1px solid #000;}
+
+#nydottno .container {margin:.7em;line-height:120%;color:#444;}
+#nydottno div {clear:left;margin-bottom:4px;}
+#nydottno span {font-family: verdana,arial,sans-serif;font-size: 11px;color:#017189;float:right;text-decoration:none;}
+#nydottno strong{font-weight:bold;}
+#nydottno .container img {float:left;vertical-align:bottom;}
+
+#hei .logged-in{font-size:50px;color:#06285d;font-weight:bold;}
+
+#start p.center {font-size: 11px;}
+
+/**************** ANNONSER ****************/
+
+/*hestesko
+- og denne koden må med før annonsen skrives ut, KUN NÅR annonsen skal på: <link rel="stylesheet" type="text/css" media="screen" href="http://www.dagbladet.no/css3/tema/hestesko.css">
+*/
+
+.hs-ad1, .hs-ad2, .hs-ad3 {position:absolute;margin:0;padding:0;color:#000;overflow:hidden}
+.hs-ad1 a, .hs-ad2 a, .hs-ad3 a {text-decoration:none;margin:0;padding:0;}
+.hs-ad1 {left:0px;top:0;width:1348px;height:163px;}
+.hs-ad1 .ad-tag {height:10px!important;width:1348px;display:block;margin:0;padding:0;text-align:center;color:#000;line-height:10px;margin-bottom:3px;}
+.hs-ad2 {left:0px;top:163px;width:180px;height:1000px;}	
+.hs-ad3 {left:1168px;top:163px;width:180px;height:1000px;}	
+
+#ad-top {padding-bottom:5px;margin-bottom:.5em;position:relative}
+#ad-top-right,
+#ad-top-left,
+#ad-top-wide {position:relative;}
+
+.grid-80-20 #ad-top-729 {float:right; margin-right:17px;}
+.grid-80-20 #ad-top-200 {float:left; margin-left:13px;}
+.grid-20-80 #ad-top-729 {float:left; margin-left:13px;}
+.grid-20-80 #ad-top-200 {float:right; margin-right:17px;}
+
+
+#ad-top-972,
+#ad-top-729,
+#ad-top-200 {height:90px;}
+#ad-top-972 {width:972px;text-align:center;background-color:#fff;}
+#ad-top-729 {width:729px;display:inline;}
+#ad-top-200 {display:inline;width:200px;}
+#ad-top-left {float:left;width:188px;margin-right:11px;height:150px;font-size:0;}
+#ad-top-right {float:right;width:768px;margin:0;padding:0;font-size:0;}
+#ad-top-wide {width:980px;}
+.ad a {font:normal normal 10px verdana,arial,sans-serif;color:#000;text-decoration:none;}
+#main-col .ad,
+#side-col .ad {text-align:center;clear:both;font-size:10px;margin:0;}
+#side-col .ad {margin-bottom:5px;}
+
+#ad-top-right iframe {display:block;}
+
+#main-col .ad p,
+#side-col .ad p{font-size:10px;}
+
+#main-col .ad p a,
+#side-col .ad p a{color:#000;text-decoration:none;}
+#main-col .ad p a:hover,
+#side-col .ad p a:hover{color:#d60000;}
+
+#side-col .ad img{display:block;}
+
+#ad-top-left .ad-tag,
+#ad-top-right .ad-tag,
+#ad-top-wide .ad-tag{position:absolute;top:2px;height:47px;font-size:9px;width:7px;z-index:500;}
+
+#ad-top-left .ad-tag a,
+#ad-top-right .ad-tag a,
+#ad-top-wide .ad-tag a{color:#000;text-decoration:none;}
+
+#ad-top-left .ad-tag a:hover,
+#ad-top-right .ad-tag a:hover,
+#ad-top-wide .ad-tag a:hover{color:#d60000;}
+
+#ad-top-left .ad-tag{ left:188px;}
+#ad-top-right .ad-tag{left:772px;}
+#ad-top-wide .ad-tag{left:976px;}
+
+/* spesialannonser utover sidebredden på forsida */
+#ad-special {width:280px;height:500px;position:absolute;top:245px;_top:245px;*top:245px;left:980px;z-index:1001;overflow:hidden}
+#ad-special p a {color: #000;font-size:10px;margin-bottom:5px}
+#ad-special p a:link, #ad-special p a:visited {text-decoration:none;}
+#ad-special p a:hover {color:#d60000;text-decoration:underline;}
+#ad-special p a:active {color:#000;text-decoration:none;}
+
+
+#ad-magasinet {width:650px;height:500px;position:absolute;top:0;left:990px;z-index:1001;overflow:hidden}
+#ad-magasinet p a {color: #000;font-size:10px;margin-bottom:5px}
+#ad-magasinet p a:link, #ad-magasinet p a:visited {text-decoration:none;}
+#ad-magasinet p a:hover {color:#d60000;text-decoration:underline;}
+#ad-magasinet p a:active {color:#000;text-decoration:none;}
+
+#ad-special-1340 {width:400px;height:1340px;position:absolute;top:0;left:990px;z-index:1001;overflow:hidden}
+#ad-special-1340 p a {color: #000;font-size:10px;margin-bottom:5px}
+#ad-special-1340 p a:link, #ad-special-1340 p a:visited {text-decoration:none;}
+#ad-special-1340 p a:hover {color:#d60000;text-decoration:underline;}
+#ad-special-1340 p a:active {color:#000;text-decoration:none;}
+
+#ad-268x1000-magasinet {width:268px;height:1000px;position:absolute;left:990px;top:70px;border:0;}
+#ad-268x1000-kjendis {width:268px;height:1000px;position:absolute;left:990px;top:129px;border:0;}
+#ad-268x1000-kultur,
+#ad-268x1000-nyheter,
+#ad-268x1000-sport {width:268px;height:1000px;position:absolute;left:990px;top:70px;border:0;}
+
+#ad-top {_position:relative;_height:150px}
+#ad-top #ad-top-full {_margin-left:0;_position:absolute;_left:0;_top:0;_z-index:300000}
+#ad-top #ad-268x1000 {position:absolute;top:-8px;left:980px;_left:972px;width:276px;height:1000px;background:#fff url(http://gfx.dagbladet.no/g3/frame-276x1016.gif) no-repeat 0 top;padding:8px 0}
+#ad-top-right #ad-268x1000 {position:absolute;top:-8px;left:766px;width:276px;height:1000px;background:#fff url(http://gfx.dagbladet.no/g3/frame-276x1016.gif) no-repeat 0 top;padding:8px 0}
+#ad-268x1000-123spill {position:absolute;top:0;left:768px;width:268px;height:1000px;}
+
+/* utvidet L på front */
+.ad-282x768 {position:absolute!important;top:-8px!important;left:768px!important;height:677px;width:279px;background:#fff url(http://gfx.dagbladet.no/g3/frame-279x693.gif) no-repeat 8px top;padding: 8px 8px 8px 0}
+
+#printkommentarer {position:relative!important}
+#ad-180x500-kommentar {height: 500px; width: 180px; position: absolute; left: -196px; top: 0pt;}
+
+/**************** tagcloud ***************/
+.module-box .tagcloud {	font: normal normal 14px arial,verdana;line-height: 160%}
+.module-box .tagcloud a { margin: 0 3px;}
+.module-box .tagcloud a.level-1 {font-size:12px}
+.module-box .tagcloud a.level-2 {font-size:14px}
+.module-box .tagcloud a.level-3 {font-size:16px}
+.module-box .tagcloud a.level-4 {font-size:18px}
+.module-box .tagcloud a.level-5 {font-size:20px}
+.module-box .tagcloud a.level-6 {font-size:21px}
+.module-box .tagcloud a.level-7 {font-size:22px}
+
+.tagcloud {color: #000;text-align: center;}
+.tagcloud a {color: #777;text-decoration: none;}
+.tagcloud a:hover {color: #d60000;}
+.tagcloud a.taglevel1 {font-size: 12px;}
+.tagcloud a.taglevel2 {font-size: 18px;}
+.tagcloud a.taglevel3 {font-size: 22px;}
+.tagcloud a.taglevel4 {font-size: 26px;}
+.tagcloud a.taglevel5 {font-size: 30px;}
+.tagcloud a.taglevel6 {font-size: 34px;}
+.tagcloud a.taglevel7 {font-size: 38px;}
+
+.tagcloudbox {width: 74,2%;margin-bottom:10px;}
+
+
+/* THICKBOX STYLE */
+/* ----------------------------------------------------------------------------------------------------------------*/
+/* ---------->>> global settings needed for thickbox <<<-----------------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------------------*/
+*{padding: 0; margin: 0;}
+
+/* ----------------------------------------------------------------------------------------------------------------*/
+/* ---------->>> thickbox specific link and font settings <<<------------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------------------*/
+#TB_window {font: 12px Arial, Helvetica, sans-serif;color: #333333;}
+#TB_secondLine {font: 10px Arial, Helvetica, sans-serif;color:#666666;}
+#TB_window a:link {color: #666666;}
+#TB_window a:visited {color: #666666;}
+#TB_window a:hover {color: #000;}
+#TB_window a:active {color: #666666;}
+#TB_window a:focus{color: #666666;}
+
+/* ----------------------------------------------------------------------------------------------------------------*/
+/* ---------->>> thickbox settings <<<-----------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------------------*/
+#TB_overlay {position: fixed;z-index:100;top: 0px;left: 0px;background-color:#000;filter:alpha(opacity=20);-moz-opacity: 0.20;opacity: 0.20;height:100%;width:100%;}
+
+/* ie6 hack */
+* html #TB_overlay {position: absolute;height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');}
+
+#TB_window {position: fixed;background: #fff;z-index: 102;color:#000;display:none;border: 1px solid #92A769;text-align:left;top:50%;left:40%;}
+
+/* ie6 hack */
+* html #TB_window { position: absolute;margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');}
+
+#TB_window img#TB_Image {display:block;margin: 15px 0 0 15px;}
+#TB_caption{height:25px;padding:7px 30px 0 15px;float:left;}
+#TB_closeWindow{height:25px;padding:11px 15px 0 0;float:right;}
+#TB_closeAjaxWindow{padding:7px 10px 5px 0;margin-bottom:1px;text-align:right;float:right;}
+#TB_ajaxWindowTitle{float:left;padding:7px 0 5px 10px;margin-bottom:1px;}
+#TB_title{background-color:#e8e8e8;height:27px;}
+#TB_ajaxContent{clear:both;padding:2px 15px 15px 15px;overflow:auto;text-align:left;line-height:1.4em;}
+#TB_ajaxContent.TB_modal{padding:15px;}
+#TB_ajaxContent p{padding:5px 0px 5px 0px;}
+#TB_load{position: fixed;display:none;height:13px;width:208px;z-index:103;top: 50%;left: 50%;margin: -6px 0 0 -104px; /* -height/2 0 0 -width/2 */}
+
+/* ie6 hack */
+* html #TB_load {position: absolute;margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');}
+
+#TB_HideSelect{z-index:99;position:fixed;top: 0;left: 0;background-color:#fff;border:none;filter:alpha(opacity=0);-moz-opacity: 0;opacity: 0;height:100%;width:100%;}
+
+/* ie6 hack */
+* html #TB_HideSelect { position: absolute;height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');}
+
+#TB_iframeContent{clear:both;border:none;margin-bottom:-1px;margin-top:1px;_margin-bottom:1px;}
+
+h2 span.smalltxt {font: normal normal 10px verdana, arial,sans-serif; color: #666;margin-left:5px}
+
+.module-box li.right {line-height:18px;width:100%;text-align:right}
+.db-dice {float:left;margin:0 20px 20px 15px}
+
+.dice {height:21px;width:21px;background:transparent url(http://gfx.dagbladet.no/g3/terninger/dices-all12.gif) no-repeat left top;float:left;margin:5px 5px 5px 4px;}
+
+div.num1, div.num2, div.num3, div.num4, div.num5, div.num6 {border:1px solid #BF171E}
+div.num1 {background-position: 0 0}
+div.num2 {background-position: -20px 0}
+div.num3 {background-position: -41px 0}
+div.num4 {background-position: -61px 0}
+div.num5 {background-position: -82px 0}
+div.num6 {background-position: -103px 0}
+
+a.dice:link, a.dice:visited {border:1px solid #888}
+a.dice:hover {border:1px solid #BF171E}
+a.dice:active {border:1px solid #888}
+
+a.num1:link, a.num1:visited {background-position: 0 -21px;}
+a.num2:link, a.num2:visited {background-position: -20px -21px}
+a.num3:link, a.num3:visited {background-position: -41px -21px}
+a.num4:link, a.num4:visited {background-position: -61px -21px}
+a.num5:link, a.num5:visited {background-position: -82px -21px}
+a.num6:link, a.num6:visited {background-position: -103px -21px}
+
+a.num1:hover {background-position: 0 0}
+a.num2:hover {background-position: -20px 0}
+a.num3:hover {background-position: -41px 0}
+a.num4:hover {background-position: -61px 0}
+a.num5:hover {background-position: -82px 0}
+a.num6:hover {background-position: -103px 0}
+
+a.num1:active {background-position: 0 -21px}
+a.num2:active {background-position: -20px -21px}
+a.num3:active {background-position: -41px -21px}
+a.num4:active {background-position: -61px -21px}
+a.num5:active{background-position: -82px -21px}
+a.num6:active {background-position: -103px -21px}
+
+.result {width:110px;float:right;margin:5px 5px 5px 0}
+.result h1.average {font: normal bold 18px arial,verdana,sans-serif;color:#000;float:right;margin:0;padding:0;}
+.result .dice {float:left;margin:0 5px}
+.result h4.votes {font: normal normal 10px verdana,arial,sans-serif;color:#666;line-height:11px;text-align:center;float:left}
+
+.filmsok {margin:0!important;text-align:center}
+.filmsok input.button{padding:2px;font:normal normal 11px arial,verdana,sans-serif;color:#444;}
+.filmsok input.search {text-align:left;font: normal normal 13px arial,verdana,sans-serif;background:#FFFFFF url(http://gfx.dagbladet.no/g3/input-bg.gif) repeat-x left top;border:1px solid #aaa;width:130px}
+.filmsok img.filmlex {width:138px;margin: 0 auto;padding:0}
+
+#right-col #gruppespill table.group caption {
+	font-weight:bold;
+}
+
+/* Søkebokser med lupe som bakgrunnsbilde t.v. */
+.container.search {margin:10px}
+.container.search {background: transparent url(http://gfx.dagbladet.no/skatt/sok_stor_eee.gif) no-repeat 20px 10px;padding-left:100px}
+.container.search table td {padding:4px}
+.container.search select {width:70px;}
+
+/* NYHETSVARSEL */
+.newsalert {width:972px;padding:0;margin:-5px 0 10px 0;padding:0;background:#000 url(http://gfx.dagbladet.no/g3/meny/akkuratna.gif) no-repeat 10px 7px;}
+.newsalert h2 {font:normal bold 24px arial,verdana,sans-serif;color:#fff;width:auto;height:auto;margin:0 5px 5px 200px;padding-top:10px;vertical-align:middle}
+.newsalert h2 a:link,.newsalert  h2 a:visited {text-decoration:none;color:#fff}
+.newsalert h2 a:hover {color:#d60000;}
+.newsalert h2 a:active {color:#fff;}
+.newsalert a.close {float:left;font:normal normal 10px verdana,arial,sans-serif;color:#fff;margin: 40px 0 5px 10px}
+.newsalert a.close:link, a.close:visited {color:#fff}
+.newsalert a.close:hover {color:#d60000}
+.newsalert a.close:active {color:#fff}
+.newsalert a.tips {height:60px;width:95px;background:#d60000 url(http://gfx.dagbladet.no/g3/meny/tips2400-d60000.gif) no-repeat 8px 5px;float:right;text-decoration:none;border:none}
+
+#reisetips img.float-left {margin:0 5px 5px 0;*margin:5px 5px 5px 0;_margin:5px 5px 5px 0;}
+#reisetips h2 {margin: 5px 0;}
+#reisetips h2 a:link, #reisetips h2 a:visited {color:#000;font:normal bold 14px arial,verdana,sans-serif;text-decoration:none}
+#reisetips h2 a:hover{color:#000;font:normal bold 14px arial,verdana,sans-serif;text-decoration:underline!important}
+#reisetips h2 a:active{color:#000;font:normal bold 14px arial,verdana,sans-serif;text-decoration:none}
+#reisetips .sted {clear:both;color:#666;margin-top:3px;float:right;}
+#reisetips .lesmer a:link, #reisetips .lesmer a:visited, #reisetips .lesmer a:hover, #reisetips .lesmer a:active {font:normal normal 11px verdana,arial,sans-serif;}
+
+/* Vip boks */
+div.sorg {border:1px solid #ddd;margin-top:10px;}
+div.sorg h1 {background-image:none!important;background-color:#000;color:#fff;padding: 3px 10px;font-size:18px;margin:0;}
+div.sorg .ref {border:none}
+
+img.logo247 {border-bottom:1px solid #000;margin:10px 0 5px 0;padding-bottom:5px;width:247px;}
+#egenannonse .xt1, #egenannonse .xt2, #egenannonse .xt3, #egenannonse .xt4 {background:#eee;}
+
+/* blinkboksen */
+#blink-big .xt1, #blink-big .xt2, #blink-big .xt3, #blink-big .xt4 {background:#45484d;}
+#blink-big .xb1, #blink-big .xb2, #blink-big .xb3, #blink-big .xb4 {background:#000;}
+#blink-big {background:#000 url(http://gfx.dagbladet.no/g3/blink-bg-black.gif) repeat-x;color:#fff;text-align:center;}
+#blink-big h2{color:#fff;margin-bottom:.2em;}
+#blink-big .blinklogo{ margin:0 0px 0 5px; float:left;}
+#blink-big .loggedin{float:left;text-align:left;}
+#blink-big .loggedin img{border:1px solid #fff;}
+#blink-big .gallery{background:#000;clear:both;margin:0 5px 5px 5px;width:762px;text-align:left;}
+#blink-big .gallery ul{margin:0 0 0 18px;}
+#blink-big .gallery ul li{display:inline;}
+#blink-big .gallery img{background: #fff;border:1px solid #fff;width:80px;height:80px;}
+#blink-big .gallery h2{size:13px;color:#fff;margin:0 0 .2em 18px;}
+
+/* utlisting av anmeldelser (faktaboks og forside anmeldelser) */
+div.anmeldelse{ padding: 5px 0 0 5px;}
+div.anmeldelse h2 {font-size: 15px;}
+div.anmeldelse img.terning {border: 0;float: right;}
+div.anmeldelse small{color: #777777;}
+
+/* standard-elementer */
+/* TABELL */
+
+table.standard {margin: 10px 0;color:#000;font:normal 12px verdana,arial,sans-serif;border-color:#d3d3d3}
+table.standard th {font-weight:bold;text-align:left}
+table.standard td {padding:2px 4px;}
+table.standard h2 {font: normal bold 15px arial,verdana,sans-serif}
+
+/* start-poll i artikler */
+.start-poll {width:170px;margin:10px 0}
+.group .start-poll {width:320px;margin:0;padding:0;}
+#right-col .start-poll {width:240px;margin:0 4px;padding:0;}
+.start-poll h1 {font-size:13px}
+.start-poll.left-poll {float:left;margin-right:8px!important;margin-left:0!important}
+.start-poll.right-poll {float:right;margin-left:8px!important;margin-right:0!important}
+.start-poll .button {padding:3px 8px;margin:5px 0;float:left}
+.start-poll .poll-result {float:right;font-size:11px;margin:12px 0 0 0;}
+
+/* start-poll på forsida */
+.front_poll {margin:0}
+.front_poll p {font-weight:bold}
+.front_poll form label {margin: 0 5px;}
+.front_poll form input {margin-left:5px;padding:0 5px;}
+.front_poll form label input {margin:0}
+.mod-100 .front_poll {clear: both;margin-top: 10px;}								
+.front_poll p {font-weight: bold; display:inline;}
+.mod-100 .front_poll form {display: inline;}
+.mod-50 .front_poll {clear: both;}
+.mod-50 .front_poll p {display:inline;}
+.mod-50 .front_poll form {display: inline;}
+.mod-33 .front_poll p {display: inline;}
+.mod-33 .front_poll form label.poll_answer {display: inline;}
+.poll_answer {margin:0 5px 0 0}
+
+.quiz h2 {font:normal bold 28px arial,verdana,sans-serif;text-align:center;margin:40px 0 20px 0}
+.quiz h3 {font:normal bold 15px arial,verdana,sans-serif;margin-bottom:10px}
+.quiz h4 {font:normal bold 15px arial,verdana,sans-serif;margin-bottom:10px;color:#337499}
+.quiz form input{margin:10px 0 0 5px;padding-left:10px}
+.quiz form span {margin-left:10px}
+.quiz .quiz_submit {padding:3px 15px}
+
+/* NYHETSVARSEL */
+.ekstra {height:auto;position:relative}
+.ekstra a.lukk_varsel {font:normal normal 10px verdana,arial,sans-serif;color:#eb0130;position:absolute;bottom:10px;right:10px}
+#newsalert {clear:both;overflow:hidden;position:relative;width:100%;*margin-bottom:10px}
+#newsalert h1 {font: normal bold 30px arial,verdana,sans-serif;color:yellow;float:left;margin:6px 30px 8px 20px;_margin-left:10px}
+#newsalert .alert-txt {font: normal normal 22px arial,verdana,sans-serif;color:#fff;float:left;margin:10px 0;width:70%}
+#newsalert .alert-txt span span {color:#eb0130;text-decoration:underline;font-size:20px;}
+#newsalert .tipsoss {font:normal normal 11px verdana,arial,sans-serif;color:#fff;margin-bottom:5px}
+#newsalert .tipsoss b {font:normal bold 17px arial,verdana,sans-serif;line-height:12px}
+#newsalert .alert-txt a {color:#fff;text-decoration:none;}
+#content .ekstra {margin: 5px 0 20px 0;}
+#main-col .ekstra {margin: 5px 0 10px 0;}
+
+/* USA-valget 2008 */
+.usa-valget_2008 .usavalg {background: #34749A url(http://gfx.dagbladet.no/g3/hmarg/usavalg08-stars.jpg) no-repeat 170px 6px;}
+.usa-valget_2008 .usavalg h1 {font-size:20px}
+.usa-valget_2008 .usavalg h1 a {text-decoration:none!important;color:#fff!important}
+.usa-valget_2008 .candidates {font: normal bold 17px arial,verdana,sans-serif;width:250px;text-align:center}
+.usa-valget_2008 .obama {color:#34749A;}
+.usa-valget_2008 .mccain {color:#ff0011}
+.usa-valget_2008 .candidates img {margin:0 3px;}
+.usa-valget_2008 .subtext1 {width:240px;text-align:center;color:#666}
+.usa-valget_2008 .subtext2 {width:240px;text-align:center;font-weight:bold;color:#000}
+
+ul.anmeldelser {margin:5px;}
+ul.anmeldelser li {margin:4px 0;}
+ul.anmeldelser li i{display:block;margin-left:19px}
+ul.anmeldelser li a { font: normal bold 12px arial,verdana,sans-serif;color:#000;text-decoration:none }
+ul.anmeldelser li a:hover { font: normal bold 12px arial,verdana,sans-serif;color:#d60000;text-decoration:underline }
+.container a.lesmer {font-size:11px;margin-left:4px}
+
+.container.tagcloud {margin:5px;}
+
+.grid-80-20 #content {background:none;}
+
+/* 66/33 - temaboks front man-søn */
+.tema {margin-bottom:0}
+.temaboks {text-align:left;border-bottom:4px solid #d60000;padding-bottom:10px;background:transparent url(http://gfx.dagbladet.no/g3/dagbladet_no_h118-vertikal.jpg) no-repeat left bottom}
+.temameny {width:100%;clear:both;margin-bottom:0px;}
+.temameny a {float:left;display:block;margin:18px 10px 0;font:normal normal 18px arial,verdana,sans-serif;color:#000;text-decoration:none!important}
+.temameny a:link, .temameny a:visited {line-height:14px;color:#000;text-decoraton:none}
+.temameny a:hover {color:#d60000}
+.temameny a span {display:block;font:normal normal 10px verdana,arial,sans-serif;color:#666;width:100%;text-align:right}
+.temameny h2 {margin-left:10px}
+.temameny h2 a:link{text-align:left;font:normal bold 46px arial,verdana,sans-serif;color:#d60000;width:200px;margin:0;padding:0;vertical-align:top}
+.temadager {float:right;width:540px;}
+.temadager .today {color:#d60000;font-weight:bold}
+.centerAD.temaboks {margin-left:0}
+
+
+/* LIVE */
+div#livefotball{font-size: 12px;background: url(http://gfx.dagbladet.no/live/v2/livebg.gif) no-repeat;;border-bottom: 2px solid #a5bdd6;padding-bottom: 10px;}
+div#livefotball .score,div#livefotball .latest{width: 380px;display: block;}
+div#livefotball .score{float: right;}
+div#livefotball .latest{float: left;}
+div#livefotball h1{font-size: 16px;margin-left: 0;color: #fff;margin-bottom: 10px;text-decoration: none;}
+div#livefotball h1 a,
+div#livefotball h1 a:link,
+div#livefotball h1 a:visited,
+div#livefotball h1 a:active,
+div#livefotball h1 a:hover{text-decoration: none;color: #fff;}
+div#livefotball h2{font-family: Verdana, Arial, Helvetica;font-size: 12px;margin-bottom: 2px;}
+div#livefotball h2 a,
+div#livefotball h2 a:link,
+div#livefotball h2 a:visited,
+div#livefotball h2 a:active{color: #000;text-decoration: none;}
+div#livefotball h2 a:hover{color: #000;text-decoration: underline;}
+div#livefotball .score h1{margin-bottom: 15px;}
+div#livefotball .latest h1{padding-left: 10px;}
+div#livefotball .score ul li{width: 190px;float: left;margin-bottom: 10px;}
+div#livefotball .score ul li strong em{font-style: normal;}
+div#livefotball .score ul li strong.finished,
+div#livefotball .latest ol li h2 strong.finished{color: #31739c;}
+div#livefotball .score p {font-size: 11px;float: right;margin-right: 10px;}
+div#livefotball .latest ol li{padding-left: 27px;padding-bottom: 4px;margin-bottom: 4px;background-position: 0 3px;background-repeat: no-repeat;}
+div#livefotball .latest ol li.last{margin: 0;padding-bottom: 0;border: 0;}
+div#livefotball .latest ol li.card_yellow{background-image: url(http://gfx.dagbladet.no/live/v2/yellowcard.gif);}
+div#livefotball .latest ol li.card_yellow_2{background-image: url(http://gfx.dagbladet.no/live/v2/yellowcard_second.gif);}
+div#livefotball .latest ol li.card_red{background-image: url(http://gfx.dagbladet.no/live/v2/redcard.gif);}
+div#livefotball .latest ol li.goal_regular{background-image: url(http://gfx.dagbladet.no/live/v2/goal.gif);}
+div#livefotball .latest ol li.goal_penalty{background-image: url(http://gfx.dagbladet.no/live/v2/penalty.gif);}
+div#livefotball .latest ol li.goal_own{background-image: url(http://gfx.dagbladet.no/live/v2/owngoal.gif);}
+ul.feed li{margin: 6px 0;list-style-type: disc;}
+div#side-col ul.feed li{margin-left: 14px;}
+/* / LIVE */
+
+
+/*tips oss på forsida under henvisninger*/
+.to {width:100%;overflow:hidden;margin-top:5px;clear:both}
+.to a.tipslink{width:70px;height:16px;display:block;float:left;padding:4px;background:#d60000;font:normal bold 15px arial,verdana,sans-serif;color:#fff;text-decoration:none;text-align:center}
+.to a.tipslink:hover {background-color:#000}
+.to .ttext {height:16px;float:left;display:block;padding:4px;background:#ddd;font:normal normal 11px verdana,arial,sans-serif;line-height:16px;}
+.to .ttext span {margin-left:5px;}
+
+/* tipsoss pr juni 2009 */
+
+/*hmarg forsiden*/
+#tipsbox {color:#000;text-align:center;background-color:#d60000;line-height:50px}
+a.tipsoss2400-hm {display:block;margin:0;padding:0;text-decoration:none}
+a.tipsoss2400-hm #tipsbox, a.tipsoss2400-hm #tipsbox .xt1, a.tipsoss2400-hm #tipsbox .xt2, a.tipsoss2400-hm #tipsbox .xt3, a.tipsoss2400-hm #tipsbox .xt4, a.tipsoss2400-hm #tipsbox .xb1, a.tipsoss2400-hm #tipsbox .xb2, a.tipsoss2400-hm #tipsbox .xb3, a.tipsoss2400-hm #tipsbox .xb4 {background-color:#d60000}
+a.tipsoss2400-hm #tipsbox h1 {font-size:34px;background:#d60000;line-height:30px;color:#fff;margin:0;padding:0}
+a.tipsoss2400-hm #tipsbox p {font: normal bold 54px arial,verdana,sans-serif;margin:0;padding:0;background:#d60000;color:#000}
+a.tipsoss2400-hm:hover #tipsbox, a.tipsoss2400-hm:hover #tipsbox h1, a.tipsoss2400-hm:hover #tipsbox p {background:#000;cursor:pointer;color:#fff}
+a.tipsoss2400-hm:hover #tipsbox .xt1, a.tipsoss2400-hm:hover #tipsbox .xt2, a.tipsoss2400-hm:hover #tipsbox .xt3, a.tipsoss2400-hm:hover #tipsbox .xt4, a.tipsoss2400-hm:hover #tipsbox .xb1, a.tipsoss2400-hm:hover #tipsbox .xb2, a.tipsoss2400-hm:hover #tipsbox .xb3, a.tipsoss2400-hm:hover #tipsbox .xb4 {background-color:#000}
+
+
+/*tools artikler*/
+#tast-tips-t {margin:10px 0;font-size:11px}
+#tast-tips-t .xt1, #tast-tips-t .xt2, #tast-tips-t .xt3, #tast-tips-t .xt4, #tast-tips-t .xb1, #tast-tips-t .xb2, #tast-tips-t .xb3, #tast-tips-t .xb4,#tast-tips-t .tipsinnhold {background-color:#d60000}
+#tast-tips-t .tipsinnhold {color:#fff;width:100%;overflow:hidden}
+#tast-tips-t .tipsinnhold p span{color:#fff;font:normal bold 15px arial,verdana,sans-serif;margin:0 0 5px 0;display:block}
+#tast-tips-t .tipsinnhold input, #tast-tips-t .tipsinnhold textarea {width:87%;padding:4px;margin: 5px 5%;-moz-border-radius:3px;border:0;overflow:hidden}
+#tast-tips-t .tipsinnhold .button-t {margin:5px 5%;padding:4px 0;font:normal bold 11px verdana,arial;width:90px;}
+#tast-tips-t .tipsinnhold .button-t:hover {cursor:pointer;background:#000;color:#fff;}
+#tast-tips-t a.mer-tips-info {float:right;color:#fff;margin:10px 10px 0 0;font-size:11px}
+#tast-tips-t a.mer-tips-info:hover {color:#000}
+/*tools artikler*/
+.tast-tips-t {margin:10px 0;font-size:11px}
+.tast-tips-t .xt1, .tast-tips-t .xt2, .tast-tips-t .xt3, .tast-tips-t .xt4, .tast-tips-t .xb1, .tast-tips-t .xb2, .tast-tips-t .xb3, .tast-tips-t .xb4,.tast-tips-t .tipsinnhold {background-color:#d60000}
+.tast-tips-t .tipsinnhold {color:#fff;width:100%;overflow:hidden}
+.tast-tips-t .tipsinnhold p span{color:#fff;font:normal bold 15px arial,verdana,sans-serif;margin:0 0 5px 0;display:block}
+.tast-tips-t .tipsinnhold input, .tast-tips-t .tipsinnhold textarea {width:87%;padding:4px;margin: 5px 5%;-moz-border-radius:3px;border:0;overflow:hidden;font:normal normal 11px verdana,arial,sans-serif}
+.tast-tips-t .tipsinnhold .button-t {margin:5px 5%;padding:4px 0;font:normal bold 12px verdana,arial;width:90px;}
+.tast-tips-t .tipsinnhold .button-t:hover {cursor:pointer;background:#000;color:#fff;}
+.tast-tips-t a.mer-tips-info {float:right;color:#fff;margin:10px 10px 0 0;font-size:11px}
+.tast-tips-t a.mer-tips-info:hover {color:#000}
+
+/*klistremerke*/
+a.tipsoss2400-sticker {width:178px;height:32px;background:transparent url(http://gfx.dagbladet.no/g3/tipsoss2400.gif) no-repeat left top;display:block;font-size:0;margin:10px 0;clear:both;}
+a.tipsoss2400-sticker:hover {background:transparent url(http://gfx.dagbladet.no/g3/tipsoss2400-hover.gif) no-repeat left top}
+
+/*se.no på db.no*/
+h1.favoritt-tittel {padding:0;font-size:18px;color:#000;margin:0;}
+.alles-favoritter .module-box {margin-top:2px}
+.alles-favoritter .program {width:100%;margin:5px 0;padding:0;clear:both;font-size:12px;line-height:16px;border-bottom:1px solid #d3d3d3;height:22px}
+.alles-favoritter img.kanal {width:33px;height:20px;float:right;margin-right:10px;}
+.alles-favoritter .place {float:left;margin:0 5px 0 0;width:18px;margin:0;padding:0;text-align:center;font:normal bold 15px arial,verdana,sans-serif}
+.alles-favoritter .title {float:left;margin:0 5px;}
+.alles-favoritter .time {float:left;margin:5px 5px 2px 0;color:#777;font-size:11px;width:75px;}
+.alles-favoritter .se-minimeny {width:100%;height:35px;margin-top:8px;overflow:hidden;clear:both}
+.alles-favoritter .se-minimeny a {margin:0 5px;}
+
+
+.film-info-box {border-top:1px solid #ccc;padding:5px 0 0 0;font-size:11px;margin:0}
+.film-info-group {float:left;}
+img.kanal-logo {float:left;-moz-border-radius:3px;-webkit-border-radius:3px;background:#FFFFFF url(http://gfx.dagbladet.no/tv-program/bg-glow.png) no-repeat scroll left top;border:1px solid #DFC929;float:left;margin:5px 5px 0 0;padding:10px 1px;}
+.timeanddate {float:left;color:#323232}
+.film-date {width:100;margin:10px 0 2px 0;padding:0;}
+.title-time {width:100%;margin:0;padding:0;}
+h1.film-title {float:left;margin:0;width:100%}
+h1.film-title a {font:normal bold 20px arial,verdana,sans-serif;text-decoration:none;float:left;color:#000;}
+img.film-cover {float:left;margin-right:8px;}
+.film-omtale {float:left;margin:5px 0 0 0}
+a.film-lesmer {float:left;clear:both;margin:5px 0 0 0;width:200px}
+
+/* redesign 2009 - del 1 */
+
+/*knapper default grå*/
+a.db-button{color:#000}
+.db-button {text-decoration:none!important;background:#ccc url(http://gfx.dagbladet.no/g4/bg-grey-btn.gif) repeat-x left center;padding:4px 10px;color:#000;border:1px solid #ababab;font:normal bold 11px verdana,arial,sans-serif;-moz-border-radius:3px;-webkit-border-radius:3px;display:inline-block;text-align:center}
+.db-button:hover {cursor:pointer;border-color:#ccc}
+.db-button:active {background-image:url(http://gfx.dagbladet.no/g4/bg-grey-btn-r.gif);border-color:#ccc}
+
+/*grå knapper*/
+a.db.button.type1, .db.button.type1 {color:#000!important}
+
+/*røde knapper*/
+a.db-button.type2 {color:#fff!important}
+.db-button.type2 {background:#a10000 url(http://gfx.dagbladet.no/g4/bg-red-btn.gif) repeat-x left center;color:#fff;border-color:#8d0000;color:#fff}
+.db-button.type2:hover {cursor:pointer;border-color:#a10000}
+.db-button.type2:active {background-image:url(http://gfx.dagbladet.no/g4/bg-red-btn-r.gif);border-color:#a10000}
+
+/*svarte knapper*/
+a.db-button.type3 {color:#fff!important}
+.db-button.type3 {background:#000 url(http://gfx.dagbladet.no/g4/bg-black-btn.gif) repeat-x left center;color:#fff;border-color:#000;}
+.db-button.type3:hover {cursor:pointer;border-color:#1a1a1a}
+.db-button.type3:active {background-image:url(http://gfx.dagbladet.no/g4/bg-black-btn-r.gif);border-color:#000}
+
+/*hvite knapper*/
+a.db-button.type4 {color:#000!important}
+.db-button.type4 {background:#fff url(http://gfx.dagbladet.no/g4/bg-white-btn.gif) repeat-x left center;color:#000;border-color:#aaa;}
+.db-button.type4:hover {cursor:pointer;border-color:#bbb}
+.db-button.type4:active {background-image:url(http://gfx.dagbladet.no/g4/bg-white-btn-r.gif);border-color:#aaa}
+
+/*oransje knapper*/
+a.db-button.type5 {color:#fff!important}
+.db-button.type5 {background:#fff url(http://gfx.dagbladet.no/g4/bg-orange-btn.gif) repeat-x left center;color:#fff;border-color:#cb7200;}
+.db-button.type5:hover {cursor:pointer;border-color:#cb7200}
+.db-button.type5:active {background-image:url(http://gfx.dagbladet.no/g4/bg-orange-btn-r.gif);border-color:#cb7200}
+
+
+/* store og små */
+.db-button.xsmall {padding:1px 5px!important;font-weight:normal;font-size:10px;}
+.db-button.small {padding:2px 5px!important;font-weight:normal;}
+.db-button.medium {padding:2px 5px!important;font-weight:normal;}
+.db-button.large {padding:5px 15px!important;font:normal bold 20px arial,verdana,sans-serif}
+.db-button.xlarge {padding:10px 20px!important;font:normal bold 22px arial,verdana,sans-serif}
+
+
+/*tv-guide se.no*/
+#tvguide .ad-728x90 {width:750px;height:90px;float:right;}
+#tvguide .ad-tag a {clear:left;float:left;height:90px;margin-right:5px;width:7px;color:#fff;text-decoration:none;font:normal normal 9px verdana,arial,sans-serif;text-align:center}
+#tvguide{background:#EEEEEE url(http://gfx.dagbladet.no/g3/l-gray-bg.gif) repeat-x left top;margin-bottom:10px;position:relative}
+#tvguide.l-gray .xt1, #tvguide.l-gray .xt2, #tvguide.l-gray .xt3, #tvguide.l-gray .xt4 {background:#323232;}
+#tvguide.l-gray .xb1, #tvguide.l-gray .xb2, #tvguide.l-gray .xb3, #tvguide.l-gray .xb4 {background:#323232;}
+#tvguide .head {background:#323232;color:#fff;height:90px;margin:0;padding:5px 5px 8px 5px;;width:962px}
+#tvguide .head a.tvprog-knapp:link, #tvguide .head a.tvprog-knapp:visited {padding:5px;background:#000;color:#fff;font-weight:normal;width:110px;border:none;-moz-border-radius:3px;-webkit-border-radius:3px}
+#tvguide h2.se-logo {margin:10px;width:150px;float:left}
+#tvguide h2 a {float:left}
+#tvguide h2 a.se-btn {width:130px;height:14px;line-height:10px;overflow:hidden;text-align:center;clear:left;padding:5px;color:#fff;text-decoration:none;background:#d60000;margin:5px 0 0 0;-moz-border-radius:3px;-webkit-border-radius:3px;font: normal bold 11px verdana,arial,sans-serif}
+#tvguide h2 a.se-btn:hover {background:#000;}
+#tvguide .tvtools {margin:0 8px 0 0;width:300px;float:right}
+#tvguide .tvtools a.tvprog-knapp {background-color:#000;}
+#tvguide .tvtools a.tvprog-knapp:hover {background-color:#d60000}
+#tvguide .programomt {margin:5px;float:left;border-color:#000;}
+#tvguide .tvsjanger {float:right;margin-top:5px}
+#tvguide .nyheter, #tvguide .film, #tvguide .serie {padding:0 1px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+#tvguide .tvsjanger span {display:block;float:left;padding:3px 6px;font:normal normal 11px verdana,arial,sans-serif;color:#000;-moz-border-raidus:3px;-webkit-border-raidus:3px;margin:2px}
+#tvguide .nyheter, #tvguide .tvsjanger .nyheter-t {background:#f8aaaa!important}
+#tvguide .film, #tvguide .tvsjanger .film-t {background:#000!important;color:#fff!important}
+#tvguide .serie, #tvguide .tvsjanger .serie-t {background:#d1e97b!important}
+#tvguide .tvfooter {background:#323232;color:#fff;height:27px;margin:0;padding:5px 5px 8px 5px;;width:962px}
+#tvguide .tvlinks a {margin:5px;float:left;}
+#tvguide .tvlinks a.tvprog-knapp {margin-left:30px}
+#tvguide .kanal-logo {width:55px;height:55px;background:#fff;border:1px solid #DFC929;float:left;overflow:hidden;margin:0 8px 2px 0;-moz-border-radius:5px;-webkit-border-radius:5px;}
+
+/*foolproofing*/
+.header1 .container h1, .header2 .container h1 {display:none} /* hvis de kopierer html-faktabokser med h1 og legger inni inni */
+.group .l-gray .container .container {margin:0!important;padding:0!important;}/*container i container*/
+
+/*klikk på front*/
+div.partnerboks {width:972px;}
+div.partnerboks .mod-100 {width:972px}
+.klikk-sidecol {width:182px;float:left;margin:4px 10px 5px 0}
+.klikk-maincol {width:775px;float:left}
+.db-forbruker {height:90px;width:180px;}
+.klikk-topp {width:775px;float:left;_width:760px}
+.klikk-mid {width:256px;float:left;}
+.klikk-annonse {width:500px;float:left;height:420px;background:#fff;margin:5px 0 15px 15px;_margin-left:5px;border-top:1px solid #d3d3d3}
+.klikk-topp .ref {float:left;width:256px;}
+.klikk-topp .ref img {height:100px;}
+.klikk-mid .ref h2 {font-size:30px;}
+.klikk-sidecol .ref h2 {font-size:20px}
+.klikk-menu {width:972px;margin:20px 0 0 0;clear:both;color:#fff}
+.klikk-menu a {padding:3px 10px;color:#000;font:normal normal 12px verdana,arial,verdana,sans-serif;}
+.klikk-menu .db-link {color:#d60000;text-decoration:none;font-weight:bold}
+.klikk-menu a:hover {color:#d60000;}

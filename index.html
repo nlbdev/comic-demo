@@ -1,0 +1,413 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title>Tegneserier</title>
+		<script type="text/javascript" src="comicPlayer/script/soundmanager2.js"></script>
+		<script type="text/javascript" src="comicPlayer/comicPlayer.js"></script>
+		<script type="text/javascript">
+			var thisURL = window.location.href;
+			thisURL = thisURL.substring(0,thisURL.lastIndexOf('/'))+'/comicPlayer/';
+			soundManager.url = thisURL+'swf/';
+			soundManager.flashVersion = 9; // better precision than 8
+			soundManager.useFastPolling = true;
+			soundManager.useHighPerformance = true;
+			soundManager.debugMode = false;
+		</script>
+		<link rel="stylesheet" type="text/css" media="screen" href="mainpage2.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="tegneserie.css"/>
+		<style type="text/css">
+			body, html {height: 100%;}
+			#outer {height: 100%; overflow: visible; position: static; width: 100%;}
+			#outer[id] {display: table; position: static;}
+			
+			#middle {position: absolute; top: 50%; width: 100%; text-align: center;} /* for explorer only*/
+			#middle[id] {display: table-cell; vertical-align: middle; position: static;}
+			
+			#inner {position: relative; top: -50%; text-align: left;} /* for explorer only */
+			#inner {width: 974px; margin-left: auto; margin-right: auto;} /* for all browsers*/
+		</style>
+		<style type="text/css">
+			#soundmanager-debug {
+			 position:fixed;
+			 _position:absolute; /* IE <7 */
+			 bottom:1em;
+			 right:1em;
+			 width:38em;
+			 height:30em;
+			 overflow:auto;
+			 padding:0px;
+			 margin:1em;
+			 font-family:monaco,"VT-100",terminal,"lucida console",courier,system;
+			 opacity:0.9;
+			 color:#333;
+			 border:1px solid #ccddee;
+			 -moz-border-radius:3px;
+			 -khtml-border-radius:3px;
+			 -webkit-border-radius:3px;
+			 background:#f3f9ff;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- start of centered div -->
+		<div id="outer">
+		<div id="middle">
+		<!--div id="inner"-->
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<center>
+		<div id="comicExplaination" style="width: 700px; text-align: left; font-size: 1.2em;">
+			<h1 class="serietittel">Synstolking av tegneserier for web</h1>
+			<br/><br/>
+			<p>Det er her gjort synstolking av tegneseriestriper. I tillegg til at alle stripene
+			er lest inn med syntetisk tale, er også tre av stripene lest inn av innleser. Det er
+			med varierende detaljnivå forklart hva som skjer i hver rute.</p>
+			<br/>
+			<p>Tegneseriestriper distribueres i dag typisk som bildefiler der alle stripens
+			ruter ligger samlet i én enkeltfil, og dermed har ikke disse stripene noe informasjon
+			i seg angående stripens ruter. Det finnes vanligvis heller ikke noe alternativ tekst, og
+			der det finnes hender det at det er brukt til et annet formål.</p>
+			<br/>
+			<p>Det er her valgt å ikke endre de opprinnelige bildefilene, men
+			heller dele opp bildet ved hjelp av såkalte "image maps" i HTML-koden.
+			Dette gjør det mulig å bruke tabulator-tasten for å navigere mellom rutene
+			i stripen. Det er også lagt til alternativ tekst til hver slik rute.</p>
+			<br/>
+			<p>Stripene spilles av på nett ved hjelp av et egenutviklet, gjenbrukbart,
+			åpen kildekode, JavaScript-skript. Skriptet tilbyr funksjonene "<i>stop()</i>" og
+			"<i>play(fra rute,til rute)</i>". På denne siden kan man styre avspillingen på
+			følgende måte:</p>
+			<br/>
+			<ul>
+			<li>- Trykk på tegneseriens overskrift for å spille av alle rutene i sekvens.</li>
+			<li>- Trykk på en enkeltrute for å spille av kun den ruten.</li>
+			<li>- Trykk en gang til på tegneserien for å stoppe avspillingen.</li>
+			</ul>
+		</div>
+		</center>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var xkcdPlayer = new ComicPlayer([
+				{ url: "xkcd/xkcd.mp3", end: 10369 },
+				{ url: "xkcd/xkcd.mp3", begin: 10369, end: 19083 },
+				{ url: "xkcd/xkcd.mp3", begin: 19083, end: 25279 },
+				{ url: "xkcd/xkcd.mp3", begin: 25279 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:xkcdPlayer.play(0,3)">XKCD</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Randall Munroe</h2><br/>
+		<h2 class="serietittel">lest inn av talesyntesen Microsoft Mary</h2><br/>
+		<br/>
+		<center>
+		<div style="width: 700px">
+		<p>Fra Wikipedia:</p>
+		<blockquote style="text-align: left;"><i>"xkcd er en tegneserie skrevet og tegnet av amerikaneren Randall Munroe. Den kaller seg selv «a webcomic of romance,
+		sarcasm, math, and language» (en tegneserie med romanse, sarkasme, matte og språk). Navnet har ingen spesiell mening, men Munroe sier selv at «xkcd» står for
+		tegneserien og alt tegneserien står for. Temaet til tegneseriene varierer. Noen tar opp livet og kjærligheten, mens andre er vitser om matte og vitenskap. Noen har
+		også referanser til populærkultur. Selv om det er mest strekfigurer, har stripene noen ganger med landskaper, fraktaler eller imitasjoner (som i «parody week») av
+		andre tegneserier. Serien er tilgjengelig under lisensen Creative Commons Attribution-NonCommercial 2.5."</i></blockquote>
+		</div>
+		</center>
+		<br/>
+		<img class="comicImage" src="xkcd/xkcd.png" border="0" width="740" height="269" usemap="#xkcdFrames"/><br/>
+		<map name="xkcdFrames">
+			<area shape="rect" coords="0,0,206,269" href="javascript:xkcdPlayer.play(0,0);" alt="She approaches him as he sits in front of the computer. Girl: What are you doing? Guy: Trying the Windows 7 Beta. Girl: Why is it showing a picture of Hitler?"></area>
+			<area shape="rect" coords="206,0,376,269" href="javascript:xkcdPlayer.play(1,1);" alt="Guy: I don’t know. I can’t get it to do anything else. Girl: There’s no UI? Guy: No, just Hitler."></area>
+			<area shape="rect" coords="376,0,566,269" href="javascript:xkcdPlayer.play(2,2);" alt="Girl: Did you try ctrl-alt-delete? Guy: It just makes Hitler’s eyes flash. Girl: Huh."></area>
+			<area shape="rect" coords="566,0,740,269" href="javascript:xkcdPlayer.play(3,3);" alt="Girl: Well, it’s better than Vista. Guy: True."></area>
+		</map>
+		<p> Randall Munroe © Creative Commons Attribution - Non-Commercial 2.5 <a href="mailto:press@xkcd.com">press@xkcd.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var tommyogtigerenPlayer1 = new ComicPlayer([
+				{ url: "tommyogtigeren/tommyogtigeren1_innlest.mp3", begin:  3035, end: 15483 },
+				{ url: "tommyogtigeren/tommyogtigeren1_innlest.mp3", begin: 15483, end: 40181 },
+				{ url: "tommyogtigeren/tommyogtigeren1_innlest.mp3", begin: 40181, end: 64049 },
+				{ url: "tommyogtigeren/tommyogtigeren1_innlest.mp3", begin: 64049 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:tommyogtigerenPlayer1.play(0,3)">Tommy og Tigeren - innlest #1</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Bill Watterson</h2><br/>
+		<h2 class="serietittel">lest inn av Christin Borge</h2><br/>
+		<br/>
+		<center>
+		<div style="width: 700px">
+		<p>Fra Wikipedia:</p>
+		<blockquote style="text-align: left;"><i>"Tommy og Tigeren (engelsk: Calvin and Hobbes) er en amerikansk tegneserie om gutten Tommy og hans tøytiger Tigeren
+		og hvordan han takler oppveksten. Den er skrevet og tegnet av Bill Watterson. Tommy og Tigeren ble først utgitt i 1985, og har vært å finne i 2400 aviser.
+		Den inneholder vidtspennende humor som fenger både unge og gamle; de minste gjennom artige visuelle historier, de eldste gjennom dype poenger
+		som ofte er morsomme samtidig som de gir grunn til ettertanke."</i></blockquote>
+		</div>
+		</center>
+		<br/>
+		<img class="comicImage" src="tommyogtigeren/tommyogtigeren.jpg" border="0" width="1124" height="368" usemap="#tommyogtigerenFrames1"/><br/>
+		<map name="tommyogtigerenFrames1">
+			<area shape="rect" coords="0,0,281,368" href="javascript:tommyogtigerenPlayer1.play(0,0);" alt='En stakkars snømann står med henda i været. En kanonkule av snø har skutt et stort hull i brystet hans.'></area>
+			<area shape="rect" coords="281,0,562,368" href="javascript:tommyogtigerenPlayer1.play(1,1);" alt='En snømann ligger begravet til halsen i snøen. Det er bare hodet og de tynne kvistarmene som stikker opp. En feit snømann med slesk smil og gangsterhatt står med snøskuffa og kikker tilfreds ned på sitt hjelpeløse offer.'></area>
+			<area shape="rect" coords="562,0,843,368" href="javascript:tommyogtigerenPlayer1.play(2,2);" alt='Tommy har plassert en snømann på en krakk og lagt en renneløkke rundt halsen hans. Tauet er festet til en gren i treet bak dem. Tommy er i ferd med å dytte vekk krakken, snart er snømannen ferdig.'></area>
+			<area shape="rect" coords="843,0,1124,368" href="javascript:tommyogtigerenPlayer1.play(3,3);" alt='Inne i huset. Tommys foreldre står ved vinduet. Moren med hendene i kors, hun ser betenkt ut. Faren letter på gardinet, kikker ut og sier "Du må da iallfall innrømme at dette har ført til at bilistene senker farten i gata vår."'></area>
+		</map>
+		<p>© Øverli. distr. <a href="mailto:strandoverli@yahoo.com">strandoverli@yahoo.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var tommyogtigerenPlayer2 = new ComicPlayer([
+				{ url: "tommyogtigeren/tommyogtigeren2_innlest.mp3", begin:  6681, end: 12341 },
+				{ url: "tommyogtigeren/tommyogtigeren2_innlest.mp3", begin: 12341, end: 22632 },
+				{ url: "tommyogtigeren/tommyogtigeren2_innlest.mp3", begin: 22632, end: 32273 },
+				{ url: "tommyogtigeren/tommyogtigeren2_innlest.mp3", begin: 32273 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:tommyogtigerenPlayer2.play(0,3)">Tommy og Tigeren - innlest #2</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Bill Watterson</h2><br/>
+		<h2 class="serietittel">lest inn av Christin Borge</h2><br/>
+		<br/>
+		<img class="comicImage" src="tommyogtigeren/tommyogtigeren.jpg" border="0" width="1124" height="368" usemap="#tommyogtigerenFrames2"/><br/>
+		<map name="tommyogtigerenFrames2">
+			<area shape="rect" coords="0,0,281,368" href="javascript:tommyogtigerenPlayer2.play(0,0);" alt='En stakkars snømann står med henda i været. En kanonkule av snø har skutt et stort hull i brystet hans.'></area>
+			<area shape="rect" coords="281,0,562,368" href="javascript:tommyogtigerenPlayer2.play(1,1);" alt='En snømann ligger begravet til halsen i snøen. Det er bare hodet og de tynne kvistarmene som stikker opp. En feit snømann med slesk smil og gangsterhatt står med snøskuffa og kikker tilfreds ned på sitt hjelpeløse offer.'></area>
+			<area shape="rect" coords="562,0,843,368" href="javascript:tommyogtigerenPlayer2.play(2,2);" alt='Tommy har plassert en snømann på en krakk og lagt en renneløkke rundt halsen hans. Tauet er festet til en gren i treet bak dem. Tommy er i ferd med å dytte vekk krakken, snart er snømannen ferdig.'></area>
+			<area shape="rect" coords="843,0,1124,368" href="javascript:tommyogtigerenPlayer2.play(3,3);" alt='Inne i huset. Tommys foreldre står ved vinduet. Moren med hendene i kors, hun ser betenkt ut. Faren letter på gardinet, kikker ut og sier "Du må da iallfall innrømme at dette har ført til at bilistene senker farten i gata vår."'></area>
+		</map>
+		<p>© Øverli. distr. <a href="mailto:strandoverli@yahoo.com">strandoverli@yahoo.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var pondusPlayer1 = new ComicPlayer([
+				{ url: "pondus/pondus1_innlest.mp3", begin:  3841, end: 24033 },
+				{ url: "pondus/pondus1_innlest.mp3", begin: 24033, end: 44487 },
+				{ url: "pondus/pondus1_innlest.mp3", begin: 44487, end: 66970 },
+				{ url: "pondus/pondus1_innlest.mp3", begin: 66970 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:pondusPlayer1.play(0,3)">Pondus - innlest #1</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Frode Øverli</h2><br/>
+		<h2 class="serietittel">lest inn av Christin Borge</h2><br/>
+		<br/>
+		<center>
+		<div style="width: 700px">
+		<p>Fra Wikipedia:</p>
+		<blockquote style="text-align: left;"><i>"Pondus (Patrick) er et vandrende fotball-leksikon som har Liverpool som favorittklubb og er homofob, samt tilhenger av
+		tung rock generelt og AC/DC spesielt. Pondus er gift med Beate, som han har holdt sammen med siden tredje gym. Sammen har de barna Påsan (Kevin) og Sneipen (Frida).
+		Han spiller oldboysfotball, og jobbet tidligere som bussjåfør. Da det ble klart at Turid-Laila skulle dra på jordomseiling, overtok Pondus puben hennes og døpte den om
+		til «Pondus Pub»."</i></blockquote>
+		</div>
+		</center>
+		<br/>
+		<img class="comicImage" src="pondus/comic.gif" border="0" width="974" height="327" usemap="#pondusFrames1"/><br/>
+		<map name="pondusFrames1">
+			<area shape="rect" coords="0,0,244,327" href="javascript:pondusPlayer1.play(0,0);" alt="Pondus  står hjemme i stua og prater med Påsan. Pondus: Trener for småguttene? Jeg? Påsan: Hvorfor ikke? Nå kan du bevise hva du er laget av! Eller er det bare på PCen du duger?"></area>
+			<area shape="rect" coords="244,0,487,327" href="javascript:pondusPlayer1.play(1,1);" alt="Pondus: Vokt din tunge, sønn! Du snakker med mannen som har vunnet champions league 5 ganger! Med Exeter! Påsan: Da burde tre poeng mot Blodknotten være grei skuring neste uke!"></area>
+			<area shape="rect" coords="487,0,731,327" href="javascript:pondusPlayer1.play(2,2);" alt="Pondus: Hva skjedde med den forrige treneren? Påsan: Hansen? Helt ubrukelig! Han måtte gå! Sviktende resultater og mistillit i spiller-gruppen! Og han sluttet å spandere pizza etter kampene!"></area>
+			<area shape="rect" coords="731,0,974,327" href="javascript:pondusPlayer1.play(3,3);" alt="Pondus: Hmmm… Klassisk scenario… Påsan: Spesielt det siste poenget der bør du bite deg merke i!"></area>
+		</map>
+		<p>© Øverli. distr. <a href="mailto:strandoverli@yahoo.com">strandoverli@yahoo.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var pondusPlayer2 = new ComicPlayer([
+				{ url: "pondus/pondus2_innlest.mp3", begin:  3297, end: 23520 },
+				{ url: "pondus/pondus2_innlest.mp3", begin: 23520, end: 42760 },
+				{ url: "pondus/pondus2_innlest.mp3", begin: 42760, end: 62973 },
+				{ url: "pondus/pondus2_innlest.mp3", begin: 62973 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:pondusPlayer2.play(0,3)">Pondus - innlest #2</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Frode Øverli</h2><br/>
+		<h2 class="serietittel">lest inn av Christin Borge</h2><br/>
+		<br/>
+		<img class="comicImage" src="pondus/comic.gif" border="0" width="974" height="327" usemap="#pondusFrames2"/><br/>
+		<map name="pondusFrames2">
+			<area shape="rect" coords="0,0,244,327" href="javascript:pondusPlayer2.play(0,0);" alt="Pondus  står hjemme i stua og prater med Påsan. Pondus: Trener for småguttene? Jeg? Påsan: Hvorfor ikke? Nå kan du bevise hva du er laget av! Eller er det bare på PCen du duger?"></area>
+			<area shape="rect" coords="244,0,487,327" href="javascript:pondusPlayer2.play(1,1);" alt="Pondus: Vokt din tunge, sønn! Du snakker med mannen som har vunnet champions league 5 ganger! Med Exeter! Påsan: Da burde tre poeng mot Blodknotten være grei skuring neste uke!"></area>
+			<area shape="rect" coords="487,0,731,327" href="javascript:pondusPlayer2.play(2,2);" alt="Pondus: Hva skjedde med den forrige treneren? Påsan: Hansen? Helt ubrukelig! Han måtte gå! Sviktende resultater og mistillit i spiller-gruppen! Og han sluttet å spandere pizza etter kampene!"></area>
+			<area shape="rect" coords="731,0,974,327" href="javascript:pondusPlayer2.play(3,3);" alt="Pondus: Hmmm… Klassisk scenario… Påsan: Spesielt det siste poenget der bør du bite deg merke i!"></area>
+		</map>
+		<p>© Øverli. distr. <a href="mailto:strandoverli@yahoo.com">strandoverli@yahoo.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var pondusPlayer3 = new ComicPlayer([
+				{ url: "pondus/pondus1.mp3" },
+				{ url: "pondus/pondus2.mp3" },
+				{ url: "pondus/pondus3.mp3" },
+				{ url: "pondus/pondus4.mp3" }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:pondusPlayer3.play(0,3)">Pondus - talesyntese</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Frode Øverli</h2><br/>
+		<h2 class="serietittel">lest inn av talesyntesen NLB Brage</h2><br/>
+		<br/>
+		<img class="comicImage" src="pondus/comic.gif" border="0" width="974" height="327" usemap="#pondusFrames3"/><br/>
+		<map name="pondusFrames3">
+			<area shape="rect" coords="0,0,244,327" href="javascript:pondusPlayer3.play(0,0);" alt="Pondus  står hjemme i stua og prater med Påsan. Pondus: Trener for småguttene? Jeg? Påsan: Hvorfor ikke? Nå kan du bevise hva du er laget av! Eller er det bare på PCen du duger?"></area>
+			<area shape="rect" coords="244,0,487,327" href="javascript:pondusPlayer3.play(1,1);" alt="Pondus: Vokt din tunge, sønn! Du snakker med mannen som har vunnet champions league 5 ganger! Med Exeter! Påsan: Da burde tre poeng mot Blodknotten være grei skuring neste uke!"></area>
+			<area shape="rect" coords="487,0,731,327" href="javascript:pondusPlayer3.play(2,2);" alt="Pondus: Hva skjedde med den forrige treneren? Påsan: Hansen? Helt ubrukelig! Han måtte gå! Sviktende resultater og mistillit i spiller-gruppen! Og han sluttet å spandere pizza etter kampene!"></area>
+			<area shape="rect" coords="731,0,974,327" href="javascript:pondusPlayer3.play(3,3);" alt="Pondus: Hmmm… Klassisk scenario… Påsan: Spesielt det siste poenget der bør du bite deg merke i!"></area>
+		</map>
+		<p>© Øverli. distr. <a href="mailto:strandoverli@yahoo.com">strandoverli@yahoo.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var nemiPlayer = new ComicPlayer([
+				{ url: "nemi/nemi.mp3", end: 14667 },
+				{ url: "nemi/nemi.mp3", begin: 14667, end: 20607 },
+				{ url: "nemi/nemi.mp3", begin: 20607, end: 30856 },
+				{ url: "nemi/nemi.mp3", begin: 30856 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:nemiPlayer.play(0,3)">Nemi</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Lise Myhre</h2><br/>
+		<h2 class="serietittel">lest inn av talesyntesen NLB Brage</h2><br/>
+		<br/>
+		<center>
+		<div style="width: 700px">
+		<p>Fra Wikipedia:</p>
+		<blockquote style="text-align: left;"><i>"Nemi Montoya er ei jente på 26 år. Nemi kan nesten alltid sees i sorte klær, har likblek hud og har veldig lite til
+		felles med størsteparten av omverdenen sin. Cyan er Nemis bestevenninne. Hun har turkis hår (derav navnet) og mange bekymringer. Cyan er nok noe mer
+		«normal» enn Nemi, men har likevel mye til felles med venninnen."</i></blockquote>
+		</div>
+		</center>
+		<br/>
+		<img class="comicImage" src="nemi/nemi.gif" border="0" width="974" height="327" usemap="#nemiFrames"/><br/>
+		<map name="nemiFrames">
+			<area shape="rect" coords="0,0,244,320" href="javascript:nemiPlayer.play(0,0);" alt="Nemi er i et treningsstudio. En av de ansatte viser henne et treningsapparat. Den ansatte: Denne maskinen er kjempepopulær. Den har mange programmer, og gir veldig variert trening."></area>
+			<area shape="rect" coords="244,0,487,320" href="javascript:nemiPlayer.play(1,1);" alt="Den ansatte: Den anbefaler intensitet, og forteller deg hvor mange kalorier du forbrenner."></area>
+			<area shape="rect" coords="487,0,731,320" href="javascript:nemiPlayer.play(2,2);" alt="Den ansatte peker på apparatets kontrollpanel. Den ansatte: Dessuen har den pulsmåler, MP3-spiller og kan vise video også."></area>
+			<area shape="rect" coords="731,0,974,320" href="javascript:nemiPlayer.play(3,3);" alt="Den ansatte: Overbevist ennå? Cyan: Hvis den har en funksjon som får meg til å faktisk bruke den også, er den solgt."></area>
+		</map>
+		<p>© Lise / distr. <a href="mailto:iblis@nemi.no">iblis@nemi.no</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var rockyPlayer1 = new ComicPlayer([
+				{ url: "rocky/rocky1_innlest.mp3", begin:  3774, end: 15867 },
+				{ url: "rocky/rocky1_innlest.mp3", begin: 15867, end: 28032 },
+				{ url: "rocky/rocky1_innlest.mp3", begin: 28032, end: 47248 },
+				{ url: "rocky/rocky1_innlest.mp3", begin: 47248 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:rockyPlayer1.play(0,3)">Rocky - innlest #1</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Martin Kellerman</h2><br/>
+		<h2 class="serietittel">lest inn av Christin Borge</h2><br/>
+		<br/>
+		<center>
+		<div style="width: 700px">
+		<p>Fra Wikipedia:</p>
+		<blockquote style="text-align: left;"><i>"Rocky er en selvbiografisk tegneserie skapt av Martin Kellerman. Serien kom ut for første gang i 1998 gjennom gratisavisa
+		Metro i Stockholm. Serien sentrerer rundt den antropomorfe bikkja Rocky, en ganske vanlig fyr som elsker hip-hop, og som har sine problemer å stri med når det gjelder
+		jobb, damer og livet generelt."</i></blockquote>
+		</div>
+		</center>
+		<br/>
+		<img class="comicImage" src="rocky/rocky.gif" border="0" width="974" height="327" usemap="#rockyFrames1"/><br/>
+		<map name="rockyFrames1">
+			<area shape="rect" coords="0,0,244,290" href="javascript:rockyPlayer1.play(0,0);" alt="Rocky står med en kopp i hånda og ser ut vinduet. Rocky: Oida, som det har snødd! Jeg må ut og måke så feieren kommer fram med bilen."></area>
+			<area shape="rect" coords="244,0,487,290" href="javascript:rockyPlayer1.play(1,1);" alt="Rocky går ut og måker snø. Rocky: Åå hiv og hoi! Å fytte faen! Og kukk og piss! Og fytte faen!"></area>
+			<area shape="rect" coords="487,0,731,290" href="javascript:rockyPlayer1.play(2,2);" alt='Idet han har måkt seg halvveis opp til pipen, snur han seg og ser ned. Han klamrer seg skrekkslagen til takstigen. Rocky: "En 36 år gammel tegneserietegner ble mandag funnet død av en besøkende feier. Politiet oppgir at sannsynlig dødsårsak er ekstremt lav I.Q."'></area>
+			<area shape="rect" coords="731,0,974,290" href="javascript:rockyPlayer1.play(3,3);" alt="Når Rocky har måkt seg vei helt til pipen, stiller han seg oppreist og ser utover nabolaget. Rocky: Det ble faen meg en ordentlig jævla gammaldags mannemann av meg til slutt! Det må jeg forte meg ned og twittre om!"></area>
+		</map>
+		<p>© Martin Kellerman <a href="mailto:martin_kellerman@hotmail.com">martin_kellerman@hotmail.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var rockyPlayer2 = new ComicPlayer([
+				{ url: "rocky/rocky2_innlest.mp3", begin:  2833, end: 15651 },
+				{ url: "rocky/rocky2_innlest.mp3", begin: 15651, end: 27536 },
+				{ url: "rocky/rocky2_innlest.mp3", begin: 27536, end: 47485 },
+				{ url: "rocky/rocky2_innlest.mp3", begin: 47485 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:rockyPlayer2.play(0,3)">Rocky - innlest #2</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Martin Kellerman</h2><br/>
+		<h2 class="serietittel">lest inn av Christin Borge</h2><br/>
+		<br/>
+		<img class="comicImage" src="rocky/rocky.gif" border="0" width="974" height="327" usemap="#rockyFrames2"/><br/>
+		<map name="rockyFrames2">
+			<area shape="rect" coords="0,0,244,290" href="javascript:rockyPlayer2.play(0,0);" alt="Rocky står med en kopp i hånda og ser ut vinduet. Rocky: Oida, som det har snødd! Jeg må ut og måke så feieren kommer fram med bilen."></area>
+			<area shape="rect" coords="244,0,487,290" href="javascript:rockyPlayer2.play(1,1);" alt="Rocky går ut og måker snø. Rocky: Åå hiv og hoi! Å fytte faen! Og kukk og piss! Og fytte faen!"></area>
+			<area shape="rect" coords="487,0,731,290" href="javascript:rockyPlayer2.play(2,2);" alt='Idet han har måkt seg halvveis opp til pipen, snur han seg og ser ned. Han klamrer seg skrekkslagen til takstigen. Rocky: "En 36 år gammel tegneserietegner ble mandag funnet død av en besøkende feier. Politiet oppgir at sannsynlig dødsårsak er ekstremt lav I.Q."'></area>
+			<area shape="rect" coords="731,0,974,290" href="javascript:rockyPlayer2.play(3,3);" alt="Når Rocky har måkt seg vei helt til pipen, stiller han seg oppreist og ser utover nabolaget. Rocky: Det ble faen meg en ordentlig jævla gammaldags mannemann av meg til slutt! Det må jeg forte meg ned og twittre om!"></area>
+		</map>
+		<p>© Martin Kellerman <a href="mailto:martin_kellerman@hotmail.com">martin_kellerman@hotmail.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<div id="comicContainer">
+		<script type="text/javascript">
+			var rockyPlayer3 = new ComicPlayer([
+				{ url: "rocky/rocky.mp3", end: 10627 },
+				{ url: "rocky/rocky.mp3", begin: 10627, end: 19563 },
+				{ url: "rocky/rocky.mp3", begin: 19563, end: 40947 },
+				{ url: "rocky/rocky.mp3", begin: 40947 }
+			]);
+		</script>
+		<h1 class="serietittel"><a href="javascript:rockyPlayer3.play(0,3)">Rocky</a></h1><br/>
+		<h2 class="serietittel">skrevet og tegnet av Martin Kellerman</h2><br/>
+		<h2 class="serietittel">lest inn av talesyntesen NLB Brage</h2><br/>
+		<br/>
+		<img class="comicImage" src="rocky/rocky.gif" border="0" width="974" height="327" usemap="#rockyFrames3"/><br/>
+		<map name="rockyFrames3">
+			<area shape="rect" coords="0,0,244,290" href="javascript:rockyPlayer3.play(0,0);" alt="Rocky står med en kopp i hånda og ser ut vinduet. Rocky: Oida, som det har snødd! Jeg må ut og måke så feieren kommer fram med bilen."></area>
+			<area shape="rect" coords="244,0,487,290" href="javascript:rockyPlayer3.play(1,1);" alt="Rocky går ut og måker snø. Rocky: Åå hiv og hoi! Å fytte faen! Og kukk og piss! Og fytte faen!"></area>
+			<area shape="rect" coords="487,0,731,290" href="javascript:rockyPlayer3.play(2,2);" alt='Idet han har måkt seg halvveis opp til pipen, snur han seg og ser ned. Han klamrer seg skrekkslagen til takstigen. Rocky: "En 36 år gammel tegneserietegner ble mandag funnet død av en besøkende feier. Politiet oppgir at sannsynlig dødsårsak er ekstremt lav I.Q."'></area>
+			<area shape="rect" coords="731,0,974,290" href="javascript:rockyPlayer3.play(3,3);" alt="Når Rocky har måkt seg vei helt til pipen, stiller han seg oppreist og ser utover nabolaget. Rocky: Det ble faen meg en ordentlig jævla gammaldags mannemann av meg til slutt! Det må jeg forte meg ned og twittre om!"></area>
+		</map>
+		<p>© Martin Kellerman <a href="mailto:martin_kellerman@hotmail.com">martin_kellerman@hotmail.com</a></p>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<pre><div id="console" style="text-align: left;"></div></pre>
+		<script type="text/javascript">
+			function println(text) {
+				var time = new Date();
+				var timeString = (time.getHours()<10?'0':'')+time.getHours() + ':' +
+								 (time.getMinutes()<10?'0':'')+time.getMinutes() + ':' +
+								 (time.getSeconds()<10?'0':'')+time.getSeconds();
+				var ms = time.getTime() % 1000;
+				timeString += '.' + (ms<10?'00':(ms<100?'0':''))+ms;
+				document.getElementById('console').innerHTML += timeString+": "+text+"<br/>\n";
+			}
+		</script>
+		
+		<br/><br/><br/><br/><br/><br/>
+		
+		<!--/div-->
+		</div>
+		</div>
+		<!-- end of centered div -->
+		
+	</body>
+</html>
